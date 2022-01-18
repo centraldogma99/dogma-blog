@@ -1,11 +1,11 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import Frame from "../components/Frame"
+import Frame from "./Frame"
 
-const PostPage = ({ data }) => {
+const TagPage = ({ data, pageContext }) => {
   const nodes = data.allFile.nodes;
   return (
-    <Frame title="My Posts">
+    <Frame title={`Posts tagged ${pageContext.tag}`}>
       <ul>
         {nodes.map(node => {
           const mdx = node.childMdx;
@@ -26,21 +26,26 @@ const PostPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query {
-    allFile(filter: {sourceInstanceName: {eq: "post"}},
-    sort: {fields: childrenMdx___frontmatter___date, order: ASC}) {
+  query($tag: String) {
+    allFile(
+      filter: {
+        sourceInstanceName: {eq: "post"},
+        childMdx: {frontmatter: {tag: {eq: $tag}}}
+      }
+      sort: {fields: childMdx___frontmatter___date}
+    ) {
       nodes {
         childMdx {
-          id
           slug
           frontmatter {
-            date(formatString: "YYYY-MM-DD")
             title
+            date
           }
         }
       }
     }
   }
+  
 `
 
-export default PostPage;
+export default TagPage;

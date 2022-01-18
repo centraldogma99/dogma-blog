@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Frame from '../../components/Frame';
+import Frame from './Frame';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const PostLayout = ({ data }) => {
@@ -8,6 +8,13 @@ const PostLayout = ({ data }) => {
   return (
     <Frame title={frontmatter.title}>
       <h3>Posted at {frontmatter.date}</h3>
+      {frontmatter.tag.sort().map(tag => {
+        return (
+          <button>
+            {tag}
+          </button>
+        )
+      })}
       <MDXRenderer>
         {body}
       </MDXRenderer>
@@ -20,8 +27,9 @@ export const query = graphql`
     mdx(id: {eq: $id}) {
       body
       frontmatter {
-        date(formatString: "MMMM D, YYYY")
+        date(formatString: "YYYY-MM-DD")
         title
+        tag
       }
     }
   }
