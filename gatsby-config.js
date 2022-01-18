@@ -18,13 +18,34 @@ module.exports = {
         path: `${__dirname}/src/pages/about`,
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `postImage`,
+        path: `${__dirname}/src/images/post`,
+      }
+    },
+    'gatsby-plugin-sharp',
+    `gatsby-remark-images`,
     // {
     //   resolve: "gatsby-plugin-page-creator",
     //   options: {
     //     path: `${__dirname}/posts`,
     //   },
     // },
-    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-emotion`
   ]
 }

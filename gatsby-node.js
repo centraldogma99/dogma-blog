@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
 
     data.allFile.nodes.forEach(node => {
+      console.log(node)
       createPage({
         path: `/posts/${node.childMdx.slug}`,
         component: template,

@@ -21,6 +21,8 @@
     "gatsby-plugin-emotion": "^7.5.0",
     "gatsby-plugin-mdx": "^3.5.2",
     "gatsby-plugin-page-creator": "^4.5.2",
+    "gatsby-plugin-sharp": "^4.5.2",
+    "gatsby-remark-images": "^6.5.2",
     "gatsby-source-filesystem": "^4.5.2",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "react": "^17.0.1",

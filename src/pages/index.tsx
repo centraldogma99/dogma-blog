@@ -1,6 +1,11 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
 import Frame from "../components/Frame"
+import { css } from "@emotion/css"
+
+const liWithoutDots = css`
+  list-style-type: none;
+`
 
 const PostPage = ({ data }) => {
   const nodes = data.allFile.nodes;
@@ -10,7 +15,7 @@ const PostPage = ({ data }) => {
         {nodes.map(node => {
           const mdx = node.childMdx;
           return (
-            <li>
+            <li className={liWithoutDots}>
               <Link to={`/posts/${mdx.slug}`} key={mdx.slug}>
                 <div>
                   <h2>{mdx.frontmatter.title}</h2>

@@ -1,5 +1,6 @@
 import { graphql, Link } from "gatsby";
 import Frame from "../components/Frame";
+import TagBtn from "../components/TagBtn";
 
 const TagsPage = ({ data }) => {
   const tags = data.allMdx.group.reduce((a, b) => {
@@ -14,7 +15,7 @@ const TagsPage = ({ data }) => {
     <Frame title="All tags">
       {tags.map(tag =>
         <Link to={`/tags/${tag}`}>
-          <button>{tag}</button>
+          <TagBtn tag={tag} />
         </Link>
       )}
     </Frame>
