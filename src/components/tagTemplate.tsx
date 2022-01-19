@@ -1,6 +1,7 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
 import Frame from "./Frame"
+import PostListItem from "./PostListItem"
 
 const TagPage = ({ data, pageContext }) => {
   const nodes = data.allFile.nodes;
@@ -10,14 +11,14 @@ const TagPage = ({ data, pageContext }) => {
         {nodes.map(node => {
           const mdx = node.childMdx;
           return (
-            <li>
+            <div key={mdx.slug}>
               <Link to={`/posts/${mdx.slug}`} key={mdx.slug}>
-                <div>
-                  <h2>{mdx.frontmatter.title}</h2>
-                  <h3>Posted at {mdx.frontmatter.date}</h3>
-                </div>
+                <PostListItem
+                  title={mdx.frontmatter.title}
+                  date={mdx.frontmatter.date}
+                />
               </Link>
-            </li>
+            </div>
           )
         })}
       </ul>

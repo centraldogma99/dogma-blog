@@ -2,30 +2,28 @@ import { graphql, Link } from "gatsby"
 import React from "react"
 import Frame from "../components/Frame"
 import { css } from "@emotion/css"
-
-const liWithoutDots = css`
-  list-style-type: none;
-`
+import PostListItem from "../components/PostListItem"
 
 const PostPage = ({ data }) => {
   const nodes = data.allFile.nodes;
   return (
-    <Frame title="My Posts">
-      <ul>
-        {nodes.map(node => {
-          const mdx = node.childMdx;
-          return (
-            <li className={liWithoutDots}>
-              <Link to={`/posts/${mdx.slug}`} key={mdx.slug}>
-                <div>
-                  <h2>{mdx.frontmatter.title}</h2>
-                  <h3>Posted at {mdx.frontmatter.date}</h3>
-                </div>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
+    <Frame title="포스트 목록">
+      {nodes.map(node => {
+        const mdx = node.childMdx;
+        return (
+          <div key={mdx.slug}>
+            <Link
+              to={`/posts/${mdx.slug}`}
+              className={css`text-decoration: none;`}
+            >
+              <PostListItem
+                title={mdx.frontmatter.title}
+                date={mdx.frontmatter.date}
+              />
+            </Link>
+          </div>
+        )
+      })}
     </Frame>
   )
 }
@@ -33,7 +31,7 @@ const PostPage = ({ data }) => {
 export const query = graphql`
   query {
     allFile(filter: {sourceInstanceName: {eq: "post"}},
-    sort: {fields: childrenMdx___frontmatter___date, order: ASC}) {
+    sort: {fields: childrenMdx___frontmatter___date, order: DESC}) {
       nodes {
         childMdx {
           id
