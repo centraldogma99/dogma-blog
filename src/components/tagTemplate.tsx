@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import Frame from "./Frame"
 import PostListItem from "./PostListItem"
@@ -6,22 +6,23 @@ import PostListItem from "./PostListItem"
 const TagPage = ({ data, pageContext }) => {
   const nodes = data.allFile.nodes;
   return (
-    <Frame title={`Posts tagged ${pageContext.tag}`}>
-      <ul>
-        {nodes.map(node => {
-          const mdx = node.childMdx;
-          return (
-            <div key={mdx.slug}>
-              <Link to={`/posts/${mdx.slug}`} key={mdx.slug}>
-                <PostListItem
-                  title={mdx.frontmatter.title}
-                  date={mdx.frontmatter.date}
-                />
-              </Link>
-            </div>
-          )
-        })}
-      </ul>
+    <Frame title={
+      pageContext.tag ?
+        `# ${pageContext.tag}` :
+        "모든 포스트"
+    }>
+      {nodes.map(node => {
+        const mdx = node.childMdx;
+        return (
+          <PostListItem
+            linkTo={`/posts/${mdx.slug}`}
+            title={mdx.frontmatter.title}
+            date={mdx.frontmatter.date}
+            tags={mdx.frontmatter.tag.sort()}
+            key={mdx.slug}
+          />
+        )
+      })}
     </Frame>
   )
 }
@@ -33,12 +34,13 @@ export const query = graphql`
         sourceInstanceName: {eq: "post"},
         childMdx: {frontmatter: {tag: {eq: $tag}}}
       }
-      sort: {fields: childMdx___frontmatter___date}
+      sort: {fields: childMdx___frontmatter___date, order: DESC}
     ) {
       nodes {
         childMdx {
           slug
           frontmatter {
+            tag
             title
             date
           }

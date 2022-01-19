@@ -15,7 +15,11 @@ const descContainer = css`
   margin-bottom: 20px;
 `
 
-const PostLayout = ({ data }) => {
+const articleBodyContainer = css`
+  font-size: 18px;
+`
+
+const PostTemplate = ({ data }) => {
   const { body, frontmatter } = data.mdx;
   return (
     <Frame title={frontmatter.title}>
@@ -27,7 +31,7 @@ const PostLayout = ({ data }) => {
         )}
       </div>
       <Divider />
-      <div>
+      <div className={articleBodyContainer}>
         <MDXRenderer>
           {body}
         </MDXRenderer>
@@ -50,4 +54,4 @@ export const query = graphql`
   }
 `
 
-export default PostLayout;
+export default PostTemplate;

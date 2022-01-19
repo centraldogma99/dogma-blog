@@ -32,7 +32,6 @@ const title = css`
 `
 
 const app = css`
-  height: 100vh;
 `
 
 const content = css`

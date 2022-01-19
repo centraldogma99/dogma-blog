@@ -1,28 +1,55 @@
 import React from 'react'
 import { css } from '@emotion/css';
+import { Link } from 'gatsby';
+import TagBtn from './TagBtn';
 
 const containerStyle = css`
-  border: 1px solid black;
   padding: 20px;
   margin-bottom: 20px;
+  background-color: #ccc;
 `
 
 const titleStyle = css`
   margin: 0;
-  font-size: 20px;
+  color: black;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 650;
 `
 
 const dateStyle = css`
   margin: 0;
+  color: #222222;
   font-size: 15px;
 `
 
-const PostListItem = (props: { title: string, date: string }) => {
+const tagButtonsContainer = css`
+  margin-bottom: 10px;
+`
+
+const PostListItem = (props: {
+  title: string,
+  date: string,
+  linkTo: string,
+  tags?: string[]
+}) => {
   return (
-    <div className={containerStyle}>
-      <p className={titleStyle}>{props.title}</p>
-      <p className={dateStyle}>{props.date}</p>
-    </div>
+    <Link
+      to={props.linkTo}
+      className={css`text-decoration: none;`}
+    >
+      <div className={containerStyle}>
+        <div className={tagButtonsContainer}>
+          {props.tags?.map(tag =>
+            <Link to={`/tags/${tag}`}>
+              <TagBtn tag={tag} />
+            </Link>
+          )}
+        </div>
+        <p className={titleStyle}>{props.title}</p>
+        <p className={dateStyle}>{props.date}</p>
+      </div>
+    </Link>
   )
 }
 

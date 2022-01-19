@@ -1,35 +1,32 @@
 const path = require('path')
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-  const template = path.resolve('./src/components/PostLayout.tsx');
-
-  (async () => {
-    const { data } = await graphql(`
-      query {
-        allFile(filter: {sourceInstanceName: {eq: "post"}}) {
-          nodes {
-            childMdx {
-              id
-              slug
-            }
+const initializePostPages = async (createPage, graphql) => {
+  const template = path.resolve('./src/components/PostTemplate.tsx');
+  const { data } = await graphql(`
+    query {
+      allFile(filter: {sourceInstanceName: {eq: "post"}}) {
+        nodes {
+          childMdx {
+            id
+            slug
           }
         }
       }
-    `)
+    }
+  `)
 
-    data.allFile.nodes.forEach(node => {
-      console.log(node)
-      createPage({
-        path: `/posts/${node.childMdx.slug}`,
-        component: template,
-        context: {
-          id: node.childMdx.id
-        }
-      })
+  data.allFile.nodes.forEach(node => {
+    createPage({
+      path: `/posts/${node.childMdx.slug}`,
+      component: template,
+      context: {
+        id: node.childMdx.id
+      }
     })
-  })()
+  })
+}
 
+const initializeTagPages = async (createPage, graphql) => {
   const { data } = await graphql(`
     {
       allMdx {
@@ -58,4 +55,21 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     })
   })
+}
+
+const initializeMainPage = async (createPage) => {
+  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx')
+  createPage({
+    path: `/`,
+    component: tagTemplate
+  })
+}
+
+// Main function
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  initializePostPages(createPage, graphql);
+  initializeTagPages(createPage, graphql);
+  initializeMainPage(createPage);
 }
