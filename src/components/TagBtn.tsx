@@ -7,8 +7,8 @@ const btnStyle = css`
   background-color: dodgerblue;
   color: white;
   padding: 5px;
-  margin-right: 5px;
-  margin-bottom: 2px;
+  margin-right: 7px;
+  margin-bottom: 5px;
 `
 
 const TagBtn = (props: { tag: string }) => {
