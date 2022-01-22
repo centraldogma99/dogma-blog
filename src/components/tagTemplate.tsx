@@ -32,7 +32,7 @@ export const query = graphql`
     allFile(
       filter: {
         sourceInstanceName: {eq: "post"},
-        childMdx: {frontmatter: {tag: {eq: $tag}}}
+        childMdx: {frontmatter: {draft: {eq: false}, tag: {eq: $tag}}}
       }
       sort: {fields: childMdx___frontmatter___date, order: DESC}
     ) {

@@ -24,7 +24,7 @@ const TagsPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allMdx {
+    allMdx(filter: {frontmatter: {draft: {eq: false}}}) {
       group(field: frontmatter___tag) {
         tag: fieldValue
       }

@@ -8,6 +8,7 @@ const btnStyle = css`
   color: white;
   padding: 5px;
   margin-right: 5px;
+  margin-bottom: 2px;
 `
 
 const TagBtn = (props: { tag: string }) => {

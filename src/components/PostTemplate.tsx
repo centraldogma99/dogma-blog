@@ -1,10 +1,12 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Frame from './Frame';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import TagBtn from './TagBtn';
 import { css } from "@emotion/css"
 import { Divider } from "@mui/material"
+import hljs from 'highlight.js/lib/common';
+import 'highlight.js/styles/github.css';
 
 const subtitle = css`
   color: #cccccc;
@@ -16,11 +18,45 @@ const descContainer = css`
 `
 
 const articleBodyContainer = css`
-  font-size: 18px;
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+
+  .hljs {
+    background-color: #F5F29E;
+  }
+
+  code {
+    font-family: 'Nanum Gothic Coding', monospace;
+    border-radius: 5px;
+    background-color: #ddd;
+    color: red;
+    padding: 3px;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  pre code {
+    font-family: 'Nanum Gothic Coding', monospace;
+    color: black;
+    font-size: 14px;
+    border-radius: 10px;
+    line-height: 18px;
+  }
+
+  font-size: 16px;
+  line-height: 24px;
+  img {
+    max-width: 100%;
+  }
 `
 
 const PostTemplate = ({ data }) => {
   const { body, frontmatter } = data.mdx;
+
+  useEffect(() => {
+    console.log('hi')
+    hljs.highlightAll();
+  }, [])
+
   return (
     <Frame title={frontmatter.title}>
       <div className={descContainer}>
@@ -49,6 +85,7 @@ export const query = graphql`
         title
         subtitle
         tag
+        draft
       }
     }
   }

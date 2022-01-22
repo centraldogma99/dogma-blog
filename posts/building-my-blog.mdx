@@ -1,7 +1,8 @@
 ---
 title: "Gatsby로 블로그 만들기(1)"
-subtitle: "Gatsby 프로젝트 생성 및 "
+subtitle: "Gatsby 프로젝트 생성 및 실행"
 date: "2022-01-22"
+draft: false
 tag:
 - blog
 - gatsby
@@ -19,45 +20,45 @@ Gatsby의 특징으로는 별도의 '데이터 층'이 존재하여, 페이지�
 
 # 설치 (개발환경 구성)
 ## Gatsby 설치
-```
+```text
 $ npm install -g gatsby-cli
 ```
 `-g` 옵션을 사용하여 global하게 설치하는 것을 추천한다. 그래야 `gatsby new` 같은 명령어(새로운 Gatsby 프로젝트 생성)를 원하는 곳에서 사용할 수 있어 편리하다.
 ## Gatsby 프로젝트 생성
-```
+```text
 $ gatsby new
 ```
 프로젝트를 생성할 디렉토리에서 위 명령을 사용한다.  
 그러면 터미널에서 대화 형식으로 프로젝트와 관련한 여러 옵션을 선택할 수 있다.
-```
+```text
 What would you like to call your site?
 ✔ · My First Gatsby Site
 ```
 내 사이트의 이름을 정한다.
-```
+```text
 What would you like to name the folder where your site will be created?
 ✔ Desktop/ my-first-gatsby-site
 ```
 생성한 Gatsby 프로젝트가 저장될 경로를 정한다. 기본값이 `gatsby new`명령어를 실행한 현재 디렉토리이다. 값을 바꾸지 않고 그대로 엔터키를 눌러 넘어가 주면 된다.
-```
+```text
 ✔ Will you be using a CMS?
 · No (or I'll add it later)
 ✔ Would you like to install a styling system?
 · No (or I'll add it later)
 ```
 CMS와 스타일링 시스템(emotion, styled component 등)을 설치할지를 묻는다. 일단은 `No (or I'll add it later)`를 눌러 넘어가 준다. 필요할 경우 그때 따로 설치할 수 있다.
-```
+```text
 ✔ Would you like to install additional features with other plugins?
 · Done
 ```
 이런저런 추가 플러그인들을 보여 주며 설치할 것이냐 묻는다. 위에서 언급했듯이 필요한 경우 나중에 따로 설치할 수 있기 때문에 `Done`을 눌러 넘어가 준다.
-```
+```text
 Thanks! Here's what we'll now do:
     🛠  Create a new Gatsby site in the folder my-first-gatsby-site
 ? Shall we do this? (Y/n) › Yes
 ```
 이제 마지막 단계이다. 지금까지 대화를 통해 선택한 선택지를 보여 주며(우리는 아무것도 추가로 설치하지 않기 때문에 한 가지밖에 뜨지 않는다), 여기서 `Y`를 입력하고 엔터를 누르면 프로젝트가 생성된다.
-```
+```text
 Your new Gatsby site My First Gatsby Site has been successfully
 created at ~/Desktop/my-first-gatsby-site.
 Start by going to the directory with
