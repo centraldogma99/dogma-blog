@@ -46,6 +46,13 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-emotion`
+    `gatsby-plugin-emotion`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://blog.dogmadevs.com',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    }
   ]
 }
