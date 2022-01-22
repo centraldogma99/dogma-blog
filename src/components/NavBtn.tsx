@@ -4,20 +4,22 @@ import { css } from "@emotion/css";
 
 const s = css`
   border: 0;
+  text-decoration: none;
   background-color:gray;
   color: white;
   border-radius: 2px;
-  padding: 6px;
+  padding: 7px;
   font-size: 17px;
   margin-right: 10px;
+  height: 17px;
+  display: inline-block;
+  line-height: 16px;
 `
 
 const NavBtn = (props: { to: string, children: any }) => {
   return (
-    <Link to={props.to}>
-      <button className={s}>
-        {props.children}
-      </button>
+    <Link to={props.to} className={s}>
+      {props.children}
     </Link>
   )
 }

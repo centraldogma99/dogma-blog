@@ -5,13 +5,15 @@ import "./Frame.css"
 import NavBtn from "./NavBtn"
 
 const topBarContainerStyle = css`
-  padding: 20px;
+  padding: 10px;
+  padding-left: 20px;
   position: fixed;
   height: 90px;
   width: 100vw;
   top: 0;
   background-color: #333333;
   z-index: 999;
+  padding-bottom: 25px;
 `
 
 const contentsContainerStyle = css`
