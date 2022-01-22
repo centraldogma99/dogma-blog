@@ -14,6 +14,7 @@ const s = css`
   height: 17px;
   display: inline-block;
   line-height: 16px;
+  background-color: dodgerblue;
 `
 
 const NavBtn = (props: { to: string, children: any }) => {

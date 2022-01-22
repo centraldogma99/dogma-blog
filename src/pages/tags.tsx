@@ -1,8 +1,13 @@
 import { graphql, Link } from "gatsby";
 import Frame from "../components/Frame";
 import TagBtn from "../components/TagBtn";
+import { useState } from "react";
+import useTagSearch from "../hooks/useTagSearch";
+import { searchInputContainer, searchInput, sharp } from "../styles/tags";
 
 const TagsPage = ({ data }) => {
+  const [tagInput, setTagInput] = useState<string>("");
+
   const tags = data.allMdx.group.reduce((a, b) => {
     if (a.length) {
       return [...a, b.tag];
@@ -11,9 +16,25 @@ const TagsPage = ({ data }) => {
     }
   })
 
+  const { matchingTags } = useTagSearch(tagInput, tags);
+
   return (
-    <Frame title="All tags">
-      {tags.map(tag =>
+    <Frame title="태그로 검색하기">
+      <div className={searchInputContainer}>
+        <span className={sharp}>
+          #
+        </span>
+        <input
+          type="text"
+          value={tagInput}
+          onChange={(e) => setTagInput(e.target.value)}
+          placeholder="태그 검색"
+          className={searchInput}
+          autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
+        />
+      </div>
+
+      {matchingTags.map(tag =>
         <Link to={`/tags/${tag}`}>
           <TagBtn tag={tag} />
         </Link>

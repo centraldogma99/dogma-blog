@@ -24,7 +24,7 @@ const dateStyle = css`
 `
 
 const tagButtonsContainer = css`
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 `
 
 const PostListItem = (props: {

@@ -4,7 +4,13 @@ const initializePostPages = async (createPage, graphql) => {
   const template = path.resolve('./src/components/PostTemplate.tsx');
   const { data } = await graphql(`
     query {
-      allFile(filter: {sourceInstanceName: {eq: "post"}}) {
+      allFile(
+        filter: {
+          sourceInstanceName: {eq: "post"},
+          childMdx: {frontmatter: {draft: {eq: false}}}
+        }
+        sort: {fields: childMdx___frontmatter___date, order: DESC}
+      ) {
         nodes {
           childMdx {
             id
@@ -29,7 +35,7 @@ const initializePostPages = async (createPage, graphql) => {
 const initializeTagPages = async (createPage, graphql) => {
   const { data } = await graphql(`
     {
-      allMdx {
+      allMdx(filter: {frontmatter: {draft: {eq: false}}}) {
         group(field: frontmatter___tag) {
           tag: fieldValue
         }
@@ -51,7 +57,8 @@ const initializeTagPages = async (createPage, graphql) => {
       path: `/tags/${tag}`,
       component: tagTemplate,
       context: {
-        tag: tag
+        tag: tag,
+        skip: 0
       }
     })
   })
@@ -61,7 +68,10 @@ const initializeMainPage = async (createPage) => {
   const tagTemplate = path.resolve('./src/components/tagTemplate.tsx')
   createPage({
     path: `/`,
-    component: tagTemplate
+    component: tagTemplate,
+    context: {
+      skip: 0
+    }
   })
 }
 

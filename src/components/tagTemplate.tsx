@@ -3,13 +3,16 @@ import React from "react"
 import Frame from "./Frame"
 import PostListItem from "./PostListItem"
 
+const pageSize = 5;
+
 const TagPage = ({ data, pageContext }) => {
   const nodes = data.allFile.nodes;
+  const skip = pageContext.skip;
   return (
     <Frame title={
       pageContext.tag ?
         `# ${pageContext.tag}` :
-        "모든 포스트"
+        `포스트 목록`
     }>
       {nodes.map(node => {
         const mdx = node.childMdx;
@@ -28,13 +31,15 @@ const TagPage = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query($tag: String) {
+  query($tag: String, $skip: Int) {
     allFile(
       filter: {
         sourceInstanceName: {eq: "post"},
         childMdx: {frontmatter: {draft: {eq: false}, tag: {eq: $tag}}}
       }
       sort: {fields: childMdx___frontmatter___date, order: DESC}
+      limit: 5
+      skip: $skip
     ) {
       nodes {
         childMdx {
