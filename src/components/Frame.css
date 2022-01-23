@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap'); */
+@font-face {
+  font-family: 'Menlo';
+  src: url('../fonts/Menlo-Regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   margin: 0;
   background-color: #ffffff;

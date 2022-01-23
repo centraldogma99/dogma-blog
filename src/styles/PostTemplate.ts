@@ -25,7 +25,7 @@ export const articleBodyContainer = css`
   }
 
   code {
-    font-family: 'Nanum Gothic Coding', monospace;
+    font-family: 'Menlo', monospace;
     border-radius: 5px;
     background-color: #ddd;
     color: red;
@@ -35,7 +35,7 @@ export const articleBodyContainer = css`
   }
 
   pre code {
-    font-family: 'Nanum Gothic Coding', monospace;
+    font-family: 'Menlo', monospace;
     color: black;
     font-size: 14px;
     border-radius: 10px;
