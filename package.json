@@ -21,6 +21,7 @@
     "@mui/material": "^5.3.0",
     "gatsby": "^4.5.3",
     "gatsby-plugin-emotion": "^7.5.0",
+    "gatsby-plugin-image": "^2.5.2",
     "gatsby-plugin-mdx": "^3.5.2",
     "gatsby-plugin-page-creator": "^4.5.2",
     "gatsby-plugin-robots-txt": "^1.7.0",

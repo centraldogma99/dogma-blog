@@ -40,6 +40,7 @@ export const articleBodyContainer = css`
     font-size: 14px;
     border-radius: 10px;
     line-height: 18px;
+    padding: 10px;
   }
 
   font-size: 16px;

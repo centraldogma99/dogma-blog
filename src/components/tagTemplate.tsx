@@ -3,7 +3,6 @@ import React, { useState, useCallback } from "react"
 import Frame from "./Frame"
 import PostListItem from "./PostListItem"
 import { mdx } from "../types/allMdx"
-import { css } from "@emotion/css"
 
 const pageSize = 5;
 
