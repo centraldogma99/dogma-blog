@@ -1,3 +1,5 @@
+// 하나의 포스트를 렌더링
+
 import { graphql } from 'gatsby';
 import React, { useEffect } from 'react';
 import Frame from './Frame';

@@ -55,10 +55,11 @@ const Frame = (props: { title?: string, onScroll?: any, children: any }) => {
     <div className={app} >
       <title>{props.title ? `${props.title} | Dogma` : `No Title | Dogma`}</title>
       <div className={topBarContainerStyle}>
-        <p className={siteName}>Dogma's blog</p>
+        <Link to="/" className={css`text-decoration: none;`}>
+          <p className={siteName}>Dogma's blog</p>
+        </Link>
         <nav className={navStyle}>
           <NavBtn to="/about">About</NavBtn>
-          <NavBtn to="/">Home</NavBtn>
           <NavBtn to="/tags">Tags</NavBtn>
         </nav>
       </div>
@@ -72,7 +73,6 @@ const Frame = (props: { title?: string, onScroll?: any, children: any }) => {
           </div>
         </div>
       </div>
-
     </div>
   )
 }

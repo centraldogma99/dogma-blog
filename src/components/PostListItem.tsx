@@ -33,7 +33,7 @@ const PostListItem = (props: {
   tags?: string[]
 }) => {
   return (
-    <div>
+    <div className={css`margin-bottom: 30px;`}>
       <TagButtonsContainer>
         {props.tags?.map(tag =>
           <TagBtn tag={tag} key={tag} />

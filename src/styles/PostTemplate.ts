@@ -44,6 +44,7 @@ export const articleBodyContainer = css`
 
   font-size: 16px;
   line-height: 24px;
+  
   img {
     max-width: 100%;
   }
