@@ -18,8 +18,10 @@ const descContainer = css`
 `
 
 const articleBodyContainer = css`
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+
   .hljs {
-    background-color: #F5F29E;
+    background-color: #fffdd1;
   }
 
   code {
