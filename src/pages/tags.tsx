@@ -35,7 +35,7 @@ const TagsPage = ({ data }) => {
       </div>
       <TagButtonsContainer>
         {matchingTags.map(tag =>
-          <TagBtn tag={tag} />
+          <TagBtn tag={tag} key={tag} />
         )}
       </TagButtonsContainer>
     </Frame>
