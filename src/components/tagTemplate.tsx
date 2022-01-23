@@ -34,7 +34,7 @@ const TagPage = ({ data, pageContext }) => {
       }
       onScroll={onScroll}
     >
-      <div className={css`overflow: scroll;`}>
+      <div>
         {posts.map(mdx =>
           <PostListItem
             linkTo={`/posts/${mdx.slug}`}
