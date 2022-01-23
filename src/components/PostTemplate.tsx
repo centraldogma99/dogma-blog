@@ -3,57 +3,17 @@ import React, { useEffect } from 'react';
 import Frame from './Frame';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import TagBtn from './TagBtn';
-import { css } from "@emotion/css"
 import { Divider } from "@mui/material"
 import hljs from 'highlight.js/lib/common';
 import 'highlight.js/styles/github.css';
+import { TagButtonsContainer } from '../styles/tags';
+import { subtitle, descContainer, articleBodyContainer } from "../styles/PostTemplate"
 
-const subtitle = css`
-  color: #cccccc;
-  margin: 0;
-`
-
-const descContainer = css`
-  margin-bottom: 20px;
-`
-
-const articleBodyContainer = css`
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
-
-  .hljs {
-    background-color: #fffdd1;
-  }
-
-  code {
-    font-family: 'Nanum Gothic Coding', monospace;
-    border-radius: 5px;
-    background-color: #ddd;
-    color: red;
-    padding: 3px;
-    font-size: 14px;
-    margin: 0;
-  }
-
-  pre code {
-    font-family: 'Nanum Gothic Coding', monospace;
-    color: black;
-    font-size: 14px;
-    border-radius: 10px;
-    line-height: 18px;
-  }
-
-  font-size: 16px;
-  line-height: 24px;
-  img {
-    max-width: 100%;
-  }
-`
 
 const PostTemplate = ({ data }) => {
   const { body, frontmatter } = data.mdx;
 
   useEffect(() => {
-    console.log('hi')
     hljs.highlightAll();
   }, [])
 
@@ -62,9 +22,11 @@ const PostTemplate = ({ data }) => {
       <div className={descContainer}>
         <p className={subtitle}>{frontmatter.subtitle}</p>
         <p>{frontmatter.date} 작성</p>
-        {frontmatter.tag.sort().map(tag =>
-          <TagBtn tag={tag} />
-        )}
+        <TagButtonsContainer>
+          {frontmatter.tag.sort().map(tag =>
+            <TagBtn tag={tag} key={tag} />
+          )}
+        </TagButtonsContainer>
       </div>
       <Divider />
       <div className={articleBodyContainer}>

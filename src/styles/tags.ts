@@ -1,4 +1,5 @@
 import { css } from "@emotion/css"
+import styled from "@emotion/styled"
 
 export const searchInputContainer = css`
   display: flex;
@@ -23,4 +24,10 @@ export const searchInput = css`
   &:focus {
     outline: none !important;
   }
+`
+
+export const TagButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `

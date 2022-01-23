@@ -7,7 +7,6 @@ import NavBtn from "./NavBtn"
 const topBarContainerStyle = css`
   padding: 10px;
   padding-left: 20px;
-  position: fixed;
   height: 90px;
   width: 100vw;
   top: 0;
@@ -17,7 +16,8 @@ const topBarContainerStyle = css`
 `
 
 const contentsContainerStyle = css`
-  margin-top: 130px;
+  height: calc(100vh - 125px);
+  overflow-y: scroll;
 `
 
 const siteName = css`
@@ -34,6 +34,7 @@ const title = css`
 `
 
 const app = css`
+  overflow: hidden;
 `
 
 const content = css`
@@ -46,9 +47,9 @@ const content = css`
 const article = css`
 `
 
-const Frame = (props: { title?: string, children: any }) => {
+const Frame = (props: { title?: string, onScroll?: any, children: any }) => {
   return (
-    <div className={app}>
+    <div className={app} >
       <title>{props.title ? `${props.title} | Dogma` : `No Title | Dogma`}</title>
       <div className={topBarContainerStyle}>
         <p className={siteName}>Dogma's blog</p>
@@ -58,12 +59,12 @@ const Frame = (props: { title?: string, children: any }) => {
           <NavBtn to="/tags">Tags</NavBtn>
         </nav>
       </div>
-      <div className={contentsContainerStyle}>
+      <div className={contentsContainerStyle} onScroll={props.onScroll}>
         <div className={content}>
           {props.title && <div className={title}>
             {props.title}
           </div>}
-          <div className={article}>
+          <div className={article} >
             {props.children}
           </div>
         </div>

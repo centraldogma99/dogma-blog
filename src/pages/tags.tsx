@@ -3,7 +3,7 @@ import Frame from "../components/Frame";
 import TagBtn from "../components/TagBtn";
 import { useState } from "react";
 import useTagSearch from "../hooks/useTagSearch";
-import { searchInputContainer, searchInput, sharp } from "../styles/tags";
+import { searchInputContainer, searchInput, sharp, TagButtonsContainer } from "../styles/tags";
 
 const TagsPage = ({ data }) => {
   const [tagInput, setTagInput] = useState<string>("");
@@ -33,12 +33,11 @@ const TagsPage = ({ data }) => {
           autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
         />
       </div>
-
-      {matchingTags.map(tag =>
-        <Link to={`/tags/${tag}`}>
+      <TagButtonsContainer>
+        {matchingTags.map(tag =>
           <TagBtn tag={tag} />
-        </Link>
-      )}
+        )}
+      </TagButtonsContainer>
     </Frame>
   )
 }

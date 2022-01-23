@@ -2,11 +2,14 @@ import React from 'react'
 import { css } from '@emotion/css';
 import { Link } from 'gatsby';
 import TagBtn from './TagBtn';
+import { TagButtonsContainer } from '../styles/tags';
 
 const containerStyle = css`
   padding: 20px;
+  padding-top: 12px;
   margin-bottom: 20px;
   background-color: #ccc;
+  cursor: pointer;
 `
 
 const titleStyle = css`
@@ -23,10 +26,6 @@ const dateStyle = css`
   font-size: 15px;
 `
 
-const tagButtonsContainer = css`
-  margin-bottom: 1px;
-`
-
 const PostListItem = (props: {
   title: string,
   date: string,
@@ -34,22 +33,22 @@ const PostListItem = (props: {
   tags?: string[]
 }) => {
   return (
-    <Link
-      to={props.linkTo}
-      className={css`text-decoration: none;`}
-    >
-      <div className={containerStyle}>
-        <div className={tagButtonsContainer}>
-          {props.tags?.map(tag =>
-            <Link to={`/tags/${tag}`}>
-              <TagBtn tag={tag} />
-            </Link>
-          )}
+    <div>
+      <TagButtonsContainer>
+        {props.tags?.map(tag =>
+          <TagBtn tag={tag} key={tag} />
+        )}
+      </TagButtonsContainer>
+      <Link
+        to={props.linkTo}
+        className={css`text-decoration: none;`}
+      >
+        <div className={containerStyle}>
+          <p className={titleStyle}>{props.title}</p>
+          <p className={dateStyle}>{props.date}</p>
         </div>
-        <p className={titleStyle}>{props.title}</p>
-        <p className={dateStyle}>{props.date}</p>
-      </div>
-    </Link>
+      </Link>
+    </div>
   )
 }
 
