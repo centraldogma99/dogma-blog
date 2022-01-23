@@ -20,22 +20,22 @@ Gatsby의 특징으로는 별도의 '데이터 층'이 존재하여, 페이지�
 
 # 설치 (개발환경 구성)
 ## Gatsby 설치
-```text
+```bash
 $ npm install -g gatsby-cli
 ```
 `-g` 옵션을 사용하여 global하게 설치하는 것을 추천한다. 그래야 `gatsby new` 같은 명령어(새로운 Gatsby 프로젝트 생성)를 원하는 곳에서 사용할 수 있어 편리하다.
 ## Gatsby 프로젝트 생성
-```text
+```bash
 $ gatsby new
 ```
 프로젝트를 생성할 디렉토리에서 위 명령을 사용한다.  
 그러면 터미널에서 대화 형식으로 프로젝트와 관련한 여러 옵션을 선택할 수 있다.
-```text
+```bash
 What would you like to call your site?
 ✔ · My First Gatsby Site
 ```
 내 사이트의 이름을 정한다.
-```text
+```bash
 What would you like to name the folder where your site will be created?
 ✔ Desktop/ my-first-gatsby-site
 ```
@@ -47,18 +47,18 @@ What would you like to name the folder where your site will be created?
 · No (or I'll add it later)
 ```
 CMS와 스타일링 시스템(emotion, styled component 등)을 설치할지를 묻는다. 일단은 `No (or I'll add it later)`를 눌러 넘어가 준다. 필요할 경우 그때 따로 설치할 수 있다.
-```text
+```bash
 ✔ Would you like to install additional features with other plugins?
 · Done
 ```
 이런저런 추가 플러그인들을 보여 주며 설치할 것이냐 묻는다. 위에서 언급했듯이 필요한 경우 나중에 따로 설치할 수 있기 때문에 `Done`을 눌러 넘어가 준다.
-```text
+```bash
 Thanks! Here's what we'll now do:
     🛠  Create a new Gatsby site in the folder my-first-gatsby-site
 ? Shall we do this? (Y/n) › Yes
 ```
 이제 마지막 단계이다. 지금까지 대화를 통해 선택한 선택지를 보여 주며(우리는 아무것도 추가로 설치하지 않기 때문에 한 가지밖에 뜨지 않는다), 여기서 `Y`를 입력하고 엔터를 누르면 프로젝트가 생성된다.
-```text
+```bash
 Your new Gatsby site My First Gatsby Site has been successfully
 created at ~/Desktop/my-first-gatsby-site.
 Start by going to the directory with
@@ -71,18 +71,18 @@ See all commands at
 위와 같은 메시지를 보여주며 프로젝트 생성이 완료된다.
 
 ## 프로젝트 실행하기
-```
+```bash
 $ cd my-first-gatsby-site
 ```
 cd 명령어를 사용하여 방금 생성한 프로젝트 디렉토리로 이동한다.
 다음 명령어로 프로젝트를 실행할 수 있다.
-```
+```bash
 $ gatsby develop
 또는
 $ npm run develop
 ```
 그러면 프로젝트 빌드 과정을 보여 주는 여러 메시지 후에, 다음 메시지와 함께 실행이 완료된다.
-```
+```bash
 You can now view my-first-gatsby-site in the browser.
 ⠀
   http://localhost:8000/
@@ -95,4 +95,5 @@ schema
 이제 웹 브라우저의 주소창에 `http://localhost:8000` 을 입력하여 방금 생성한 Gatsby 사이트에 접속할 수 있다.
 ![localhost-new-site](https://user-images.githubusercontent.com/53252434/150630280-c627592a-bd2c-4496-9a48-f3c5ee55d4db.png)
   
-참고 : https://www.gatsbyjs.com/docs/tutorial/part-1/
+## 참고자료
+[Gatsby 튜토리얼](https://www.gatsbyjs.com/docs/tutorial/part-1/)

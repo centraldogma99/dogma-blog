@@ -5,14 +5,14 @@ import "./Frame.css"
 import NavBtn from "./NavBtn"
 
 const topBarContainerStyle = css`
-  padding: 10px;
-  padding-left: 20px;
-  height: 90px;
-  width: 100vw;
-  top: 0;
+  padding: 10px 20px;
+  height: 50px;
+  width: calc(100% - 40px);
   background-color: #333333;
-  z-index: 999;
-  padding-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const contentsContainerStyle = css`
@@ -23,7 +23,6 @@ const contentsContainerStyle = css`
 const siteName = css`
   margin: 0;
   font-size: 30px;
-  margin-bottom: 20px;
   color: #ffffff;
 `
 
@@ -35,6 +34,7 @@ const title = css`
 
 const app = css`
   overflow: hidden;
+  min-width: 460px;
 `
 
 const content = css`
@@ -47,13 +47,16 @@ const content = css`
 const article = css`
 `
 
+const navStyle = css`
+`
+
 const Frame = (props: { title?: string, onScroll?: any, children: any }) => {
   return (
     <div className={app} >
       <title>{props.title ? `${props.title} | Dogma` : `No Title | Dogma`}</title>
       <div className={topBarContainerStyle}>
         <p className={siteName}>Dogma's blog</p>
-        <nav>
+        <nav className={navStyle}>
           <NavBtn to="/about">About</NavBtn>
           <NavBtn to="/">Home</NavBtn>
           <NavBtn to="/tags">Tags</NavBtn>

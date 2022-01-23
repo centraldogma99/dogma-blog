@@ -14,6 +14,16 @@ export const articleBodyContainer = css`
     background-color: #fffdd1;
   }
 
+  h1 {
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
   code {
     font-family: 'Nanum Gothic Coding', monospace;
     border-radius: 5px;
