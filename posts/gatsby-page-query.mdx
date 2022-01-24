@@ -13,7 +13,7 @@ tag:
   - graphql
   - html
 ---
-
+## Page query
 페이지 쿼리란, **페이지 컴포넌트 파일 하나당 하나씩 들어갈 수 있는 GraphQL 쿼리이다.**  
 다음과 같이 [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) 형태로 선언되며, `export` 키워드로 export 되어야 gatsby가 페이지 쿼리로 처리해 준다.
 
@@ -30,7 +30,7 @@ export const query = graphql`
 `;
 ```
 
-**쿼리의 실행 결과물은 그 페이지의 컴포넌트에 `data` prop으로 넘겨져, 컴포넌트 내에서 접근할 수 있게 된다.**  
+**페이지 쿼리의 실행 결과물은 그 파일에 정의된 컴포넌트에 `data` prop으로 넘겨져, 컴포넌트 내에서 접근할 수 있게 된다.**  
 아래 예제는 모든 mdx파일들의 이름을 출력하는 컴포넌트이다.  
 (`gatsby-plugin-mdx` 플러그인을 사용함)
 
@@ -77,14 +77,44 @@ export const query = graphql`
 export default MdxNameListPage;
 ```
 
-## 주의사항
+## 페이지 쿼리에 파라미터 사용하기
 
-GraphQL query를 쓸 때 유의할 점은 "**페이지 쿼리 선언은 빌드 중에 코드에서 분리된다**"는 것이다.  
-즉, `graphql` 태그는 다른 자바스크립트 코드가 실행되는 것처럼 실행되지 않고, 분리되어 gatsby 내부에서 따로 처리된다는 것이다.  
+GraphQL 쿼리를 쓸 때 유의할 점은 "**GraphQL 쿼리 선언은 빌드 중에 코드에서 분리된다**"는 것이다.  
+말인즉슨, `graphql` 태그는 다른 자바스크립트 코드가 실행되는 것처럼 실행되지 않고, 페이지가 렌더링되기 전에 분리되어 gatsby 내부에서 따로 처리된다는 것이다.  
 따라서, [expression interpolation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#expression_interpolation)과 같은 JS 문법을 사용할 수 없다.
 
-그렇다고 GraphQL 쿼리문이 일개 문자열과 같이 하드코딩만 가능한 것은 아니다.  
-다음 글에서 페이지 생성 시 파라미터를 넘기는 방법에 대해 설명한다.
+> ### Expression interpolation 이란?
+> 3번 라인에 사용했듯이 템플릿 리터럴에 expression을 삽입하는 문법을 의미한다.  
+> 변수뿐만 아니라 `3 + 2`와 같은 어떤 javascript 표현식이든 넣을 수 있다.
+> ```javascript
+> const name = 'dogma';
+> const age = 3;
+> const str = `my name is ${name}, and ${age} years old.`
+> console.log(str);    // my name is dogma, and 3 years old.
+> ```
+
+Expression interpolation 문법을 사용할 수 없다면, 문자열 형태로 전달되는 GraphQL 쿼리는 동적으로(dynamically) 실행될 수 없고 하드코딩만 가능한 것일까?  
+여기에서 *페이지 쿼리*를 사용하는 이유가 나오는데, 페이지 쿼리의 차별점은 컴포넌트 쿼리와는 다르게 **파라미터를 받을 수 있다**는 것이다.  
+  
+아래 예제는 파라미터로 slug 값을 받아, 일치하는 mdx 노드의 id들을 불러오는 GraphQL 쿼리이다.
+```graphql
+query($sl: String) {
+  allMdx(filter: {slug: {eq: $sl}}) {
+    nodes {
+      id
+    }
+  }
+}
+```
+`$sl`는 쿼리의 파라미터로써, 원하는 이름 앞에 '$'를 붙인 형태이다.  
+필드 이름과는 관련없이 원하는 아무 이름이나 가능하다는 것을 나타내기 위해 `sl`이라는 이름을 사용했다. 
+이 값은 2번째 줄에서 필터 조건 값으로 넘겨지고 있는 것을 확인할 수 있다.  
+
+## 마무리?
+
+파라미터를 받는 법을 알았으니 파라미터를 보내는 법에 대해서도 알아야 할 것이다. 
+  
+하지만 본 글의 내용이 길어진 관계로, 다음 글에서 페이지 생성 시 페이지 쿼리에 파라미터 값을 넘기는 방법에 대해 설명한다.
 
 ## 참고자료
 
