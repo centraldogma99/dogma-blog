@@ -30,7 +30,7 @@ export const title = css`
 
 export const app = css`
   overflow: hidden;
-  min-width: 460px;
+  min-width: 375px;
 `
 
 export const content = css`

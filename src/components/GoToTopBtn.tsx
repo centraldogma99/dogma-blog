@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { css } from '@emotion/css'
 
@@ -10,17 +10,11 @@ const style = css`
   height: 40px;
 `
 
-const GoToTopBtn = (props: { obj: HTMLDivElement | null }) => {
-  console.log(props.obj)
-  const onClick = useCallback(() => {
-    props.obj?.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [props.obj])
-
+const GoToTopBtn = () => {
   return (
     <StaticImage
       src="../images/up-arrow.png"
       alt="up arrow"
-      onClick={onClick}
       className={style}
     />
   )

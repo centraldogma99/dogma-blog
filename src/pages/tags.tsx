@@ -1,7 +1,7 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Frame from "../components/Frame";
 import TagBtn from "../components/TagBtn";
-import { useState } from "react";
+import React, { useState } from "react";
 import useTagSearch from "../hooks/useTagSearch";
 import { searchInputContainer, searchInput, sharp, TagButtonsContainer } from "../styles/tags";
 
