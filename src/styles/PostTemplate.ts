@@ -20,8 +20,13 @@ export const articleBodyContainer = css`
   }
 
   h2 {
-    margin-top: 40px;
+    margin-top: 55px;
     margin-bottom: 30px;
+  }
+
+  h3 {
+    margin-top: 35px;
+    margin-bottom: 20px;
   }
 
   code {
@@ -54,5 +59,9 @@ export const articleBodyContainer = css`
     background-color: #eee;
     border-radius: 10px;
     padding: 1px 20px;
+  }
+
+  strong {
+    font-size: 17px;
   }
 `;
