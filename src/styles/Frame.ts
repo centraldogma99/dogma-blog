@@ -12,7 +12,7 @@ export const topBarContainerStyle = css`
 `
 
 export const contentsContainerStyle = css`
-  height: calc(100vh - 70px);
+  height: calc(100% - 70px);
   overflow-y: scroll;
 `
 

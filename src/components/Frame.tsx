@@ -21,12 +21,13 @@ const Frame = (props: { title?: string, onScroll?: any, children: any }) => {
   const contentsContainer = useRef<HTMLDivElement>(null);
 
   const onClickGoToTop = useCallback(() => {
-    contentsContainer.current?.scrollTo({ top: 0, behavior: 'smooth' })
+    // contentsContainer.current?.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [contentsContainer.current])
 
   return (
     <div className={app} >
-      <title>{props.title ? `${props.title} | Dogma` : `No Title | Dogma`}</title>
+      <title>{props.title ? `${props.title} | Dogma` : `제목 없음 | Dogma`}</title>
       <div className={topBarContainerStyle}>
         <Link to="/" className={css`text-decoration: none;`}>
           <p className={siteName}>Dogma's blog</p>
