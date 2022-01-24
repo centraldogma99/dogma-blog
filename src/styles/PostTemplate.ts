@@ -40,7 +40,7 @@ export const articleBodyContainer = css`
     font-size: 14px;
     border-radius: 10px;
     line-height: 18px;
-    padding: 10px;
+    padding: 20px;
   }
 
   font-size: 16px;
@@ -48,5 +48,11 @@ export const articleBodyContainer = css`
 
   img {
     max-width: 100%;
+  }
+
+  blockquote {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 1px 20px;
   }
 `;
