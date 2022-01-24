@@ -1,11 +1,11 @@
-import { Link } from "gatsby";
-import React from "react"
-import { css } from "@emotion/css";
+import { Link } from 'gatsby';
+import React from 'react';
+import { css } from '@emotion/css';
 
 const s = css`
   border: 0;
   text-decoration: none;
-  background-color:gray;
+  background-color: gray;
   color: white;
   border-radius: 2px;
   padding: 7px;
@@ -15,14 +15,14 @@ const s = css`
   display: inline-block;
   line-height: 16px;
   background-color: dodgerblue;
-`
+`;
 
-const NavBtn = (props: { to: string, children: any }) => {
+const NavBtn = (props: { to: string; children: any }) => {
   return (
     <Link to={props.to} className={s}>
       {props.children}
     </Link>
-  )
-}
+  );
+};
 
 export default NavBtn;

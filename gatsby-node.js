@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 const initializePostPages = async (createPage, graphql) => {
   const template = path.resolve('./src/components/PostTemplate.tsx');
@@ -6,10 +6,10 @@ const initializePostPages = async (createPage, graphql) => {
     query {
       allFile(
         filter: {
-          sourceInstanceName: {eq: "post"},
-          childMdx: {frontmatter: {draft: {eq: false}}}
+          sourceInstanceName: { eq: "post" }
+          childMdx: { frontmatter: { draft: { eq: false } } }
         }
-        sort: {fields: childMdx___frontmatter___date, order: DESC}
+        sort: { fields: childMdx___frontmatter___date, order: DESC }
       ) {
         nodes {
           childMdx {
@@ -19,38 +19,38 @@ const initializePostPages = async (createPage, graphql) => {
         }
       }
     }
-  `)
+  `);
 
   data.allFile.nodes.forEach(node => {
     createPage({
       path: `/posts/${node.childMdx.slug}`,
       component: template,
       context: {
-        id: node.childMdx.id
-      }
-    })
-  })
-}
+        id: node.childMdx.id,
+      },
+    });
+  });
+};
 
 const initializeTagPages = async (createPage, graphql) => {
   const { data } = await graphql(`
     {
-      allMdx(filter: {frontmatter: {draft: {eq: false}}}) {
+      allMdx(filter: { frontmatter: { draft: { eq: false } } }) {
         group(field: frontmatter___tag) {
           tag: fieldValue
         }
       }
     }
-  `)
+  `);
   const tags = data.allMdx.group.reduce((a, b) => {
     if (a.length) {
       return [...a, b.tag];
     } else {
       return [a.tag, b.tag];
     }
-  })
+  });
 
-  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx')
+  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx');
 
   tags.forEach(tag => {
     createPage({
@@ -58,15 +58,15 @@ const initializeTagPages = async (createPage, graphql) => {
       component: tagTemplate,
       context: {
         tag: tag,
-        skip: 0
-      }
-    })
-  })
-}
+        skip: 0,
+      },
+    });
+  });
+};
 
 const initializeMainPage = async (createPage, graphql) => {
   const pageSize = 5;
-  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx')
+  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx');
   // const { data } = await graphql(`
   //   query {
   //     allFile(
@@ -99,10 +99,10 @@ const initializeMainPage = async (createPage, graphql) => {
     path: `/`,
     component: tagTemplate,
     context: {
-      skip: 0
-    }
-  })
-}
+      skip: 0,
+    },
+  });
+};
 
 // Main function
 exports.createPages = ({ graphql, actions }) => {
@@ -111,4 +111,4 @@ exports.createPages = ({ graphql, actions }) => {
   initializePostPages(createPage, graphql);
   initializeTagPages(createPage, graphql);
   initializeMainPage(createPage, graphql);
-}
+};

@@ -1,5 +1,5 @@
-import { mdx } from "./allMdx"
+import { mdx } from './allMdx';
 
 type node = {
-  childMdx: mdx
-}
+  childMdx: mdx;
+};

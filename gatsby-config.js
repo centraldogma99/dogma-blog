@@ -5,25 +5,25 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `post`,
         path: `${__dirname}/posts`,
-      }
+      },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `about`,
         path: `${__dirname}/src/pages/about`,
-      }
+      },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         name: `postImage`,
         path: `${__dirname}/src/images/post`,
-      }
+      },
     },
     'gatsby-plugin-sharp',
     `gatsby-remark-images`,
@@ -50,9 +50,9 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://blog.dogmadevs.com',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
     },
-    `gatsby-plugin-image`
-  ]
-}
+    `gatsby-plugin-image`,
+  ],
+};

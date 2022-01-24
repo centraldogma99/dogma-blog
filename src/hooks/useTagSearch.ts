@@ -4,7 +4,7 @@ const useTagSearch = (tagInput: string, tags: string[]) => {
   const [matchingTags, setMatchingTags] = useState<string[]>([]);
 
   useEffect(() => {
-    if (tagInput === "") {
+    if (tagInput === '') {
       setMatchingTags(tags);
     } else {
       const tagInputUncapped = tagInput.toLowerCase();
@@ -13,9 +13,9 @@ const useTagSearch = (tagInput: string, tags: string[]) => {
         .filter(tag => tag.includes(tagInputUncapped));
       setMatchingTags(a);
     }
-  }, [tagInput])
+  }, [tagInput]);
 
-  return { matchingTags }
-}
+  return { matchingTags };
+};
 
 export default useTagSearch;

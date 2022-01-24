@@ -1,14 +1,14 @@
-import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
-import { css } from '@emotion/css'
+import React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
+import { css } from '@emotion/css';
 
 const style = css`
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 35px;
+  bottom: 35px;
   width: 40px;
   height: 40px;
-`
+`;
 
 const GoToTopBtn = () => {
   return (
@@ -17,7 +17,7 @@ const GoToTopBtn = () => {
       alt="up arrow"
       className={style}
     />
-  )
-}
+  );
+};
 
 export default GoToTopBtn;
