@@ -46,8 +46,8 @@ export const navStyle = css``;
 
 export const goToTop = css`
   position: fixed;
-  right: 50px;
-  bottom: 50px;
-  width: 40px;
-  height: 40px;
+  right: 20px;
+  bottom: 20px;
+  width: 25px;
+  height: 25px;
 `;
