@@ -4,6 +4,7 @@ module.exports = {
     siteUrl: `https://blog.dogmadevs.com`,
   },
   plugins: [
+    `gatsby-plugin-gatsby-cloud`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
