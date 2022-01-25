@@ -51,14 +51,13 @@ const TagPage = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query ($tag: String, $skip: Int) {
+  query ($tag: String) {
     allFile(
       filter: {
         sourceInstanceName: { eq: "post" }
         childMdx: { frontmatter: { draft: { eq: false }, tag: { eq: $tag } } }
       }
       sort: { fields: childMdx___frontmatter___date, order: DESC }
-      skip: $skip
     ) {
       nodes {
         childMdx {

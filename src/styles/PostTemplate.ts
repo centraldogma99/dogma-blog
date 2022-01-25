@@ -58,14 +58,28 @@ export const articleBodyContainer = css`
   blockquote {
     background-color: #eee;
     border-radius: 10px;
-    padding: 1px 20px;
+    padding: 20px;
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > h3:first-child {
+      margin-bottom: 19px;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
   strong {
     font-size: 17px;
   }
 
-  & :first-child {
+  > :first-child {
     margin-top: 19px;
   }
 `;

@@ -52,55 +52,23 @@ const initializeTagPages = async (createPage, graphql) => {
 
   const tagTemplate = path.resolve('./src/components/tagTemplate.tsx');
 
-  tags.forEach(tag => {
+  tags.forEach(tag =>
     createPage({
       path: `/tags/${tag}`,
       component: tagTemplate,
       context: {
         tag: tag,
-        skip: 0,
       },
-    });
-  });
+    }),
+  );
 };
 
-const initializeMainPage = async (createPage, graphql) => {
-  const pageSize = 5;
+const initializeMainPage = async createPage => {
   const tagTemplate = path.resolve('./src/components/tagTemplate.tsx');
-  // const { data } = await graphql(`
-  //   query {
-  //     allFile(
-  //       filter: {
-  //         sourceInstanceName: {eq: "post"},
-  //         childMdx: {frontmatter: {draft: {eq: false}}}
-  //       }
-  //       sort: {fields: childMdx___frontmatter___date, order: DESC}
-  //     ) {
-  //       nodes {
-  //         id
-  //       }
-  //     }
-  //   }
-  // `)
-
-  // const numOfPages = Math.ceil(data.allFile.nodes.length / pageSize)
-
-  // Array(numOfPages).fill(0).map((v, i) => i).map(i => {
-  //   createPage({
-  //     path: `/posts/${i}`,
-  //     component: tagTemplate,
-  //     context: {
-  //       skip: i * pageSize
-  //     }
-  //   })
-  // })
 
   createPage({
     path: `/`,
     component: tagTemplate,
-    context: {
-      skip: 0,
-    },
   });
 };
 
@@ -110,5 +78,5 @@ exports.createPages = ({ graphql, actions }) => {
 
   initializePostPages(createPage, graphql);
   initializeTagPages(createPage, graphql);
-  initializeMainPage(createPage, graphql);
+  initializeMainPage(createPage);
 };

@@ -13,7 +13,6 @@ export const topBarContainerStyle = css`
 `;
 
 export const contentsContainerStyle = css`
-  overflow-y: scroll;
   padding-bottom: 50px;
   min-height: calc(100vh - 150px);
 `;
@@ -52,7 +51,7 @@ export const app = css`
 `;
 
 export const content = css`
-  max-width: 900px;
+  max-width: 750px;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
