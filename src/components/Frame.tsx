@@ -53,7 +53,9 @@ const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
       >
         <div className={content}>
           {props.title && <div className={title}>{props.title}</div>}
-          <div className={article}>{props.children}</div>
+          <article className={article}>
+            {props.children}
+          </article>
         </div>
       </div>
       <Footer />

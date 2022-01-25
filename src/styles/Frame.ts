@@ -9,16 +9,19 @@ export const topBarContainerStyle = css`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const contentsContainerStyle = css`
   overflow-y: scroll;
   padding-bottom: 50px;
+  min-height: calc(100vh - 150px);
 `;
 
 export const siteName = css`
   margin: 0;
   font-size: 30px;
+  margin-left: 30px;
   color: #ffffff;
   font-family: 'Menlo', monospace;
   display: flex;
@@ -35,7 +38,7 @@ export const siteNameBlinkingCursor = css`
       opacity: 0;
     }
   }
-`
+`;
 
 export const title = css`
   font-size: 30px;
@@ -57,7 +60,9 @@ export const content = css`
 
 export const article = css``;
 
-export const navStyle = css``;
+export const navStyle = css`
+  margin-right: 20px;
+`;
 
 export const goToTop = css`
   position: fixed;

@@ -64,4 +64,8 @@ export const articleBodyContainer = css`
   strong {
     font-size: 17px;
   }
+
+  & :first-child {
+    margin-top: 19px;
+  }
 `;
