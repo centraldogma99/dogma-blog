@@ -4,6 +4,7 @@ import { css } from '@emotion/css';
 import './Frame.css';
 import NavBtn from './NavBtn';
 import { StaticImage } from 'gatsby-plugin-image';
+import Footer from './Footer';
 import {
   topBarContainerStyle,
   contentsContainerStyle,
@@ -14,11 +15,11 @@ import {
   article,
   navStyle,
   goToTop,
+  siteNameBlinkingCursor
 } from '../styles/Frame';
 
 const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
   const contentsContainer = useRef<HTMLDivElement>(null);
-
   const onClickGoToTop = useCallback(() => {
     // contentsContainer.current?.scrollTo({ top: 0, behavior: 'smooth' })
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -36,7 +37,9 @@ const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
             text-decoration: none;
           `}
         >
-          <p className={siteName}>Dogma's blog</p>
+          <p className={siteName}>
+            Dogma_blog<div className={siteNameBlinkingCursor}></div>
+          </p>
         </Link>
         <nav className={navStyle}>
           <NavBtn to="/about">About</NavBtn>
@@ -53,6 +56,7 @@ const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
           <div className={article}>{props.children}</div>
         </div>
       </div>
+      <Footer />
       <StaticImage
         src="../images/up-arrow.png"
         alt="up arrow"

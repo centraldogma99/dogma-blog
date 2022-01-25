@@ -12,15 +12,30 @@ export const topBarContainerStyle = css`
 `;
 
 export const contentsContainerStyle = css`
-  height: calc(100% - 70px);
   overflow-y: scroll;
+  padding-bottom: 50px;
 `;
 
 export const siteName = css`
   margin: 0;
   font-size: 30px;
   color: #ffffff;
+  font-family: 'Menlo', monospace;
+  display: flex;
+  flex-direction: row;
 `;
+
+export const siteNameBlinkingCursor = css`
+  animation: blinker 1s linear infinite;
+  background-color: white;
+  width: 20px;
+  margin-left: 6px;
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+`
 
 export const title = css`
   font-size: 30px;
@@ -47,7 +62,7 @@ export const navStyle = css``;
 export const goToTop = css`
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 50px;
   width: 25px;
   height: 25px;
 `;
