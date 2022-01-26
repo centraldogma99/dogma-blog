@@ -19,7 +19,7 @@ import {
   siteNameBlinkingCursor,
 } from '../styles/Frame';
 
-const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
+const Frame = (props: { title?: string; children: any }) => {
   const contentsContainer = useRef<HTMLDivElement>(null);
   const onClickGoToTop = useCallback(() => {
     // contentsContainer.current?.scrollTo({ top: 0, behavior: 'smooth' })
@@ -48,11 +48,7 @@ const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
           <NavBtn to="/tags">Tags</NavBtn>
         </nav>
       </div>
-      <div
-        css={contentsContainerStyle}
-        onScroll={props.onScroll}
-        ref={contentsContainer}
-      >
+      <div css={contentsContainerStyle} ref={contentsContainer}>
         <div css={content}>
           {props.title && <div css={title}>{props.title}</div>}
           <article css={article}>{props.children}</article>
