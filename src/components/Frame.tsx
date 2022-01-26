@@ -20,7 +20,6 @@ import {
 } from '../styles/Frame';
 
 const Frame = (props: { title?: string; children: any }) => {
-  console.log('ho');
   const contentsContainer = useRef<HTMLDivElement>(null);
   const onClickGoToTop = useCallback(() => {
     // contentsContainer.current?.scrollTo({ top: 0, behavior: 'smooth' })
