@@ -8,7 +8,7 @@
     "gatsby"
   ],
   "scripts": {
-    "prebuild": "git submodule update --init --recursive",
+    "prebuild": "git submodule foreach git pull origin main",
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
