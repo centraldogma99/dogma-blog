@@ -49,21 +49,21 @@ module.exports = {
       },
     },
     `gatsby-plugin-image`,
-    {
-      resolve: 'gatsby-plugin-git',
-      options: {
-        // remote name, default to origin
-        remote: 'origin',
+    // {
+    //   resolve: 'gatsby-plugin-git',
+    //   options: {
+    //     // remote name, default to origin
+    //     remote: 'origin',
 
-        // SHA1 revision to fetch and checkout
-        revision: 'd3e313e990020f042cd9cdb578292f538c9080a3',
+    //     // SHA1 revision to fetch and checkout
+    //     revision: 'd3e313e990020f042cd9cdb578292f538c9080a3',
 
-        // url of the repository to fetch
-        url: `https://github.com/centraldogma99/dogma-blog-posts.git`,
+    //     // url of the repository to fetch
+    //     url: `https://github.com/centraldogma99/dogma-blog-posts.git`,
 
-        // folder in which to put the repository
-        path: `${__dirname}/posts`,
-      },
-    },
+    //     // folder in which to put the repository
+    //     path: `${__dirname}/posts`,
+    //   },
+    // },
   ],
 };
