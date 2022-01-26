@@ -15,7 +15,7 @@ import {
   article,
   navStyle,
   goToTop,
-  siteNameBlinkingCursor
+  siteNameBlinkingCursor,
 } from '../styles/Frame';
 
 const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
@@ -27,6 +27,7 @@ const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
 
   return (
     <div className={app}>
+      <meta name="robots" content="all" />
       <title>
         {props.title ? `${props.title} | Dogma` : `제목 없음 | Dogma`}
       </title>
@@ -53,9 +54,7 @@ const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
       >
         <div className={content}>
           {props.title && <div className={title}>{props.title}</div>}
-          <article className={article}>
-            {props.children}
-          </article>
+          <article className={article}>{props.children}</article>
         </div>
       </div>
       <Footer />
