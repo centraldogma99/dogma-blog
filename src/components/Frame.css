@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Menlo';
+  src: url('../fonts/Menlo-Regular.woff');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: 'Noto Sans KR';
+}
