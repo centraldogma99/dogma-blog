@@ -28,12 +28,9 @@ const TagPage = ({ data, pageContext }) => {
             ...prev,
             ...mdxs.slice(prev.length, prev.length + pageSize),
           ]);
-        } else {
-          return;
         }
-      } else {
-        return;
       }
+      return;
     },
     [posts, mdxs, pageSize],
   );

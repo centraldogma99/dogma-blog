@@ -2,10 +2,12 @@
 import { css, jsx } from '@emotion/react';
 
 const footerStyle = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   bottom: 0;
   width: 100%;
-  text-align: center;
   background-color: #333;
   color: white;
   text-decoration: none;
@@ -21,10 +23,12 @@ const footerStyle = css`
 const Footer = () => {
   return (
     <div css={footerStyle}>
-      Source on{' '}
-      <b>
-        <a href="https://github.com/centraldogma99/dogma-blog">Github</a>
-      </b>
+      <p>
+        Source on{' '}
+        <b>
+          <a href="https://github.com/centraldogma99/dogma-blog">Github</a>
+        </b>
+      </p>
     </div>
   );
 };
