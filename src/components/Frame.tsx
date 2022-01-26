@@ -29,6 +29,7 @@ const Frame = (props: { title?: string; children: any }) => {
   return (
     <div css={app}>
       <meta name="robots" content="all" />
+      <meta name="theme-color" content="#005A9C" />
       <title>
         {props.title ? `${props.title} | Dogma` : `제목 없음 | Dogma`}
       </title>
