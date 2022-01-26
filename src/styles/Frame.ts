@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@emotion/react';
 
 export const topBarContainerStyle = css`
   padding: 10px 20px;

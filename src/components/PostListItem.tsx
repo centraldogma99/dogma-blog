@@ -1,5 +1,5 @@
-import React from 'react';
-import { css } from '@emotion/css';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 import { Link } from 'gatsby';
 import TagBtn from './TagBtn';
 import { TagButtonsContainer } from '../styles/tags';
@@ -34,7 +34,7 @@ const PostListItem = (props: {
 }) => {
   return (
     <div
-      className={css`
+      css={css`
         margin-bottom: 30px;
       `}
     >
@@ -45,13 +45,13 @@ const PostListItem = (props: {
       </TagButtonsContainer>
       <Link
         to={props.linkTo}
-        className={css`
+        css={css`
           text-decoration: none;
         `}
       >
-        <div className={containerStyle}>
-          <p className={titleStyle}>{props.title}</p>
-          <p className={dateStyle}>{props.date}</p>
+        <div css={containerStyle}>
+          <p css={titleStyle}>{props.title}</p>
+          <p css={dateStyle}>{props.date}</p>
         </div>
       </Link>
     </div>

@@ -1,6 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 import { StaticImage } from 'gatsby-plugin-image';
-import { css } from '@emotion/css';
+import { css, jsx } from '@emotion/react';
 
 const style = css`
   position: fixed;
@@ -12,11 +12,7 @@ const style = css`
 
 const GoToTopBtn = () => {
   return (
-    <StaticImage
-      src="../images/up-arrow.png"
-      alt="up arrow"
-      className={style}
-    />
+    <StaticImage src="../images/up-arrow.png" alt="up arrow" css={style} />
   );
 };
 

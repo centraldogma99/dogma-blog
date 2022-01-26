@@ -1,5 +1,5 @@
-import React from 'react'
-import { css } from '@emotion/css';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 
 const footerStyle = css`
   position: relative;
@@ -13,17 +13,20 @@ const footerStyle = css`
 
   a {
     text-decoration: none;
-    color : dodgerblue;
+    color: dodgerblue;
     cursor: pointer;
   }
-`
+`;
 
 const Footer = () => {
   return (
-    <div className={footerStyle}>
-      Source on <b><a href="https://github.com/centraldogma99/dogma-blog">Github</a></b>
+    <div css={footerStyle}>
+      Source on{' '}
+      <b>
+        <a href="https://github.com/centraldogma99/dogma-blog">Github</a>
+      </b>
     </div>
-  )
-}
+  );
+};
 
 export default Footer;

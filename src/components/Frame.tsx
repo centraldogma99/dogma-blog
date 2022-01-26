@@ -1,6 +1,7 @@
-import React, { useRef, useCallback } from 'react';
+/** @jsx jsx */
+import { useRef, useCallback } from 'react';
 import { Link } from 'gatsby';
-import { css } from '@emotion/css';
+import { css, jsx } from '@emotion/react';
 import './Frame.css';
 import NavBtn from './NavBtn';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -26,42 +27,42 @@ const Frame = (props: { title?: string; onScroll?: any; children: any }) => {
   }, [contentsContainer.current]);
 
   return (
-    <div className={app}>
+    <div css={app}>
       <meta name="robots" content="all" />
       <title>
         {props.title ? `${props.title} | Dogma` : `제목 없음 | Dogma`}
       </title>
-      <div className={topBarContainerStyle}>
+      <div css={topBarContainerStyle}>
         <Link
           to="/"
-          className={css`
+          css={css`
             text-decoration: none;
           `}
         >
-          <p className={siteName}>
-            Dogma_blog<div className={siteNameBlinkingCursor}></div>
+          <p css={siteName}>
+            Dogma_blog<div css={siteNameBlinkingCursor}></div>
           </p>
         </Link>
-        <nav className={navStyle}>
+        <nav css={navStyle}>
           <NavBtn to="/about">About</NavBtn>
           <NavBtn to="/tags">Tags</NavBtn>
         </nav>
       </div>
       <div
-        className={contentsContainerStyle}
+        css={contentsContainerStyle}
         onScroll={props.onScroll}
         ref={contentsContainer}
       >
-        <div className={content}>
-          {props.title && <div className={title}>{props.title}</div>}
-          <article className={article}>{props.children}</article>
+        <div css={content}>
+          {props.title && <div css={title}>{props.title}</div>}
+          <article css={article}>{props.children}</article>
         </div>
       </div>
       <Footer />
       <StaticImage
         src="../images/up-arrow.png"
         alt="up arrow"
-        className={goToTop}
+        css={goToTop}
         onClick={onClickGoToTop}
       />
     </div>

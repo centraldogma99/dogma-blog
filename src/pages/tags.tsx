@@ -1,7 +1,9 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 import Frame from '../components/Frame';
 import TagBtn from '../components/TagBtn';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import useTagSearch from '../hooks/useTagSearch';
 import {
   searchInputContainer,
@@ -25,14 +27,14 @@ const TagsPage = ({ data }) => {
 
   return (
     <Frame title="태그로 검색하기">
-      <div className={searchInputContainer}>
-        <span className={sharp}>#</span>
+      <div css={searchInputContainer}>
+        <span css={sharp}>#</span>
         <input
           type="text"
           value={tagInput}
           onChange={e => setTagInput(e.target.value)}
           placeholder="태그 검색"
-          className={searchInput}
+          css={searchInput}
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"

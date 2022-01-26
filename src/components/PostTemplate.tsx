@@ -1,7 +1,8 @@
+/** @jsx jsx */
 // 하나의 포스트를 렌더링
-
+import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Frame from './Frame';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import TagBtn from './TagBtn';
@@ -24,8 +25,8 @@ const PostTemplate = ({ data }) => {
 
   return (
     <Frame title={frontmatter.title}>
-      <div className={descContainer}>
-        <p className={subtitle}>{frontmatter.subtitle}</p>
+      <div css={descContainer}>
+        <p css={subtitle}>{frontmatter.subtitle}</p>
         <p>{frontmatter.date} 작성</p>
         <TagButtonsContainer>
           {frontmatter.tag.sort().map(tag => (
@@ -34,7 +35,7 @@ const PostTemplate = ({ data }) => {
         </TagButtonsContainer>
       </div>
       <Divider />
-      <div className={articleBodyContainer}>
+      <div css={articleBodyContainer}>
         <MDXRenderer>{body}</MDXRenderer>
       </div>
     </Frame>

@@ -1,6 +1,7 @@
+/** @jsx jsx */
+
 import { Link } from 'gatsby';
-import React from 'react';
-import { css } from '@emotion/css';
+import { css, jsx } from '@emotion/react';
 
 const s = css`
   border: 0;
@@ -19,7 +20,7 @@ const s = css`
 
 const NavBtn = (props: { to: string; children: any }) => {
   return (
-    <Link to={props.to} className={s}>
+    <Link to={props.to} css={s}>
       {props.children}
     </Link>
   );

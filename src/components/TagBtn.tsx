@@ -1,6 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 import { Link } from 'gatsby';
-import { css } from '@emotion/css';
+import { css, jsx } from '@emotion/react';
 
 const btnStyle = css`
   border: 0;
@@ -16,11 +16,11 @@ const TagBtn = (props: { tag: string }) => {
   return (
     <Link
       to={`/tags/${props.tag}`}
-      className={css`
+      css={css`
         text-decoration: none;
       `}
     >
-      <div className={btnStyle}>{`# ${props.tag}`}</div>
+      <div css={btnStyle}>{`# ${props.tag}`}</div>
     </Link>
   );
 };
