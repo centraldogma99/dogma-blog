@@ -49,6 +49,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-image`,
+    `gatsby-plugin-netlify`,
     // {
     //   resolve: 'gatsby-plugin-git',
     //   options: {

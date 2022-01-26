@@ -28,6 +28,7 @@
     "gatsby-plugin-git": "^0.0.1-4",
     "gatsby-plugin-image": "^2.5.2",
     "gatsby-plugin-mdx": "^3.5.2",
+    "gatsby-plugin-netlify": "^4.0.0",
     "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sharp": "^4.5.2",
     "gatsby-remark-images": "^6.5.2",
