@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://blog.dogmadevs.com/sitemap/sitemap-index.xml
+Host: https://blog.dogmadevs.com

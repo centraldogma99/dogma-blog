@@ -1,4 +1,0 @@
-[submodule "posts"]
-	path = posts
-	url = https://github.com/centraldogma99/dogma-blog-posts.git
-	branch = main

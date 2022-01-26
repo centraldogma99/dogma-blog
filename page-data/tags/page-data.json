@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-tags-tsx",
+    "path": "/tags/",
+    "result": {"data":{"allMdx":{"group":[{"tag":"blog"},{"tag":"emotion"},{"tag":"frontend"},{"tag":"gatsby"},{"tag":"graphql"},{"tag":"headless"},{"tag":"html"},{"tag":"javascript"},{"tag":"react"},{"tag":"styledcomponent"}]}},"pageContext":{}},
+    "staticQueryHashes": []}
