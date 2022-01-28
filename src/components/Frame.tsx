@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { useRef, useCallback, useState } from 'react';
 import { Link } from 'gatsby';
-import { css, jsx, ThemeProvider, Theme, useTheme } from '@emotion/react';
+import { css, jsx, useTheme } from '@emotion/react';
 import './Frame.css';
 import ThemeContext from '../contexts/ThemeContext';
 import themes from '../styles/themes';
@@ -20,7 +20,6 @@ import {
   goToTop,
   siteNameBlinkingCursor,
 } from '../styles/Frame';
-import { useEffect } from 'react';
 import { useContext } from 'react';
 
 const Frame = (props: { title?: string; children: any }) => {
@@ -45,7 +44,7 @@ const Frame = (props: { title?: string; children: any }) => {
   return (
     <div css={app}>
       <meta name="robots" content="all" />
-      <meta name="theme-color" content={theme.colors.primary} />
+      <meta name="theme-color" content={theme?.colors.primary} />
       <title>
         {props.title ? `${props.title} | Dogma` : `제목 없음 | Dogma`}
       </title>
