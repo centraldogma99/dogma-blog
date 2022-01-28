@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react';
+import { css, jsx, Theme } from '@emotion/react';
 
-const footerStyle = css`
+const footerStyle = (theme: Theme) => css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@ const footerStyle = css`
 
   a {
     text-decoration: none;
-    color: dodgerblue;
+    color: ${theme.colors.primary};
     cursor: pointer;
   }
 `;

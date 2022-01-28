@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "types": ["@emotion/react/types/css-prop"],
+    "esModuleInterop": true,
     "jsx": "react-jsx"
   }
 }

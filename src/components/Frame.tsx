@@ -1,9 +1,11 @@
 /** @jsx jsx */
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useState } from 'react';
 import { Link } from 'gatsby';
-import { css, jsx } from '@emotion/react';
+import { css, jsx, ThemeProvider, Theme, useTheme } from '@emotion/react';
 import './Frame.css';
-import NavBtn from './NavBtn';
+import ThemeContext from '../contexts/ThemeContext';
+import themes from '../styles/themes';
+import NavBtn, { navButtonStyle } from './NavBtn';
 import { StaticImage } from 'gatsby-plugin-image';
 import Footer from './Footer';
 import {
@@ -18,18 +20,32 @@ import {
   goToTop,
   siteNameBlinkingCursor,
 } from '../styles/Frame';
+import { useEffect } from 'react';
+import { useContext } from 'react';
 
 const Frame = (props: { title?: string; children: any }) => {
+  const theme = useTheme();
+  const { setTheme } = useContext(ThemeContext);
   const contentsContainer = useRef<HTMLDivElement>(null);
+
   const onClickGoToTop = useCallback(() => {
-    // contentsContainer.current?.scrollTo({ top: 0, behavior: 'smooth' })
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [contentsContainer.current]);
+  }, []);
+
+  const onClickTheme = useCallback(() => {
+    setTheme(prev => {
+      if (prev === themes.length - 1) {
+        return 0;
+      } else {
+        return prev + 1;
+      }
+    });
+  }, []);
 
   return (
     <div css={app}>
       <meta name="robots" content="all" />
-      <meta name="theme-color" content="#005A9C" />
+      <meta name="theme-color" content={theme.colors.primary} />
       <title>
         {props.title ? `${props.title} | Dogma` : `제목 없음 | Dogma`}
       </title>
@@ -41,12 +57,16 @@ const Frame = (props: { title?: string; children: any }) => {
           `}
         >
           <p css={siteName}>
-            Dogma_blog<div css={siteNameBlinkingCursor}></div>
+            Dogma_blog
+            <div css={siteNameBlinkingCursor} />
           </p>
         </Link>
         <nav css={navStyle}>
           <NavBtn to="/about">About</NavBtn>
           <NavBtn to="/tags">Tags</NavBtn>
+          <p onClick={onClickTheme} css={navButtonStyle}>
+            Go pink
+          </p>
         </nav>
       </div>
       <div css={contentsContainerStyle} ref={contentsContainer}>
@@ -56,6 +76,7 @@ const Frame = (props: { title?: string; children: any }) => {
         </div>
       </div>
       <Footer />
+
       <StaticImage
         src="../images/up-arrow.png"
         alt="up arrow"

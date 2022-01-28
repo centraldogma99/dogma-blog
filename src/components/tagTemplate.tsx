@@ -36,7 +36,7 @@ const TagPage = ({ data, pageContext }) => {
   );
 
   return (
-    <Frame title={pageContext.tag ? `# ${pageContext.tag}` : `포스트 목록`}>
+    <Frame title={pageContext.tag ? `# ${pageContext.tag}` : ``}>
       <div>
         {posts.map(mdx => (
           <PostListItem

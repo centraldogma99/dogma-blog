@@ -3,12 +3,15 @@ import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 import Frame from '../../components/Frame';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { articleBodyContainer } from '../../styles/PostTemplate';
 
 const AboutPage = ({ data }) => {
   const body = data.mdx.body;
   return (
     <Frame title="About Me">
-      <MDXRenderer>{body}</MDXRenderer>
+      <div css={articleBodyContainer}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </div>
     </Frame>
   );
 };

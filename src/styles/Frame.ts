@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
 
 export const topBarContainerStyle = css`
   padding: 10px 20px;
@@ -12,24 +12,25 @@ export const topBarContainerStyle = css`
   flex-wrap: wrap;
 `;
 
-export const contentsContainerStyle = css`
+export const contentsContainerStyle = (theme: Theme) => css`
+  background-color: ${theme.colors.globalBackground};
   padding-bottom: 50px;
   min-height: calc(100vh - 150px);
 `;
 
-export const siteName = css`
+export const siteName = (theme: Theme) => css`
   margin: 0;
   font-size: 30px;
   margin-left: 30px;
-  color: #ffffff;
+  color: ${theme.colors.title};
   font-family: 'Menlo', monospace;
   display: flex;
   flex-direction: row;
 `;
 
-export const siteNameBlinkingCursor = css`
+export const siteNameBlinkingCursor = (theme: Theme) => css`
   animation: blinker 1s linear infinite;
-  background-color: white;
+  background-color: ${theme.colors.title};
   width: 20px;
   margin-left: 6px;
   @keyframes blinker {
@@ -45,7 +46,8 @@ export const title = css`
   margin-bottom: 20px;
 `;
 
-export const app = css`
+export const app = (theme: Theme) => css`
+  background-color: ${theme.colors.globalBackground};
   overflow: hidden;
   min-width: 375px;
 `;

@@ -1,18 +1,20 @@
 /** @jsx jsx */
 import { Link } from 'gatsby';
-import { css, jsx } from '@emotion/react';
-
-const btnStyle = css`
-  border: 0;
-  background-color: dodgerblue;
-  color: white;
-  padding: 3px 5px;
-  margin-right: 7px;
-  font-size: 13px;
-  margin-bottom: 5px;
-`;
+import { css, jsx, useTheme } from '@emotion/react';
 
 const TagBtn = (props: { tag: string }) => {
+  const theme = useTheme();
+
+  const btnStyle = css`
+    border: 0;
+    background-color: ${theme.colors.primary};
+    color: ${theme.colors.secondary};
+    padding: 3px 5px;
+    margin-right: 7px;
+    font-size: 13px;
+    margin-bottom: 5px;
+  `;
+
   return (
     <Link
       to={`/tags/${props.tag}`}

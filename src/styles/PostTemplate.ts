@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { Theme } from '@emotion/react';
 
 export const subtitle = css`
   color: #cccccc;
@@ -9,7 +10,11 @@ export const descContainer = css`
   margin-bottom: 20px;
 `;
 
-export const articleBodyContainer = css`
+export const articleBodyContainer = (theme: Theme) => css`
+  font-size: 16px;
+  line-height: 24px;
+  color: ${theme.colors.text};
+
   .hljs {
     background-color: #fffdd1;
   }
@@ -17,16 +22,22 @@ export const articleBodyContainer = css`
   h1 {
     margin-top: 50px;
     margin-bottom: 40px;
+    color: ${theme.colors.primary};
   }
 
   h2 {
     margin-top: 55px;
     margin-bottom: 30px;
+    color: ${theme.colors.primary};
   }
 
   h3 {
     margin-top: 35px;
     margin-bottom: 20px;
+    color: ${theme.colors.primary};
+  }
+
+  h1 h2 h3 {
   }
 
   code {
@@ -47,9 +58,6 @@ export const articleBodyContainer = css`
     line-height: 18px;
     padding: 20px;
   }
-
-  font-size: 16px;
-  line-height: 24px;
 
   img {
     max-width: 100%;
