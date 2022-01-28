@@ -23,8 +23,8 @@ import {
 import { useContext } from 'react';
 
 const Frame = (props: { title?: string; children: any }) => {
-  const theme = useTheme();
-  const { setTheme } = useContext(ThemeContext);
+  // const theme = useTheme();
+  const { theme, setTheme } = useContext(ThemeContext);
   const contentsContainer = useRef<HTMLDivElement>(null);
 
   const onClickGoToTop = useCallback(() => {
