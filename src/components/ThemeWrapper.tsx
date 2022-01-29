@@ -10,8 +10,7 @@ const ThemeContextProvider = ({ children }) => {
     <ThemeContext.Provider
       value={{ theme: themes[current], setTheme: setCurrent }}
     >
-      {children}
-      {/* <ThemeProvider theme={themes[current]}>{children}</ThemeProvider> */}
+      <ThemeProvider theme={themes[current]}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
 };
