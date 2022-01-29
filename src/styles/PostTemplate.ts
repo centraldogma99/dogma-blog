@@ -91,7 +91,7 @@ export const articleBodyContainer = (theme: Theme) => css`
     }
   }
 
-  :first-of-type {
+  > :first-child {
     margin-top: 19px;
   }
 `;
