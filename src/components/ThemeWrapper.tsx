@@ -1,10 +1,20 @@
 import { ThemeProvider } from '@emotion/react';
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import ThemeContext from '../contexts/ThemeContext';
 import themes from '../styles/themes';
 
-const ThemeContextProvider = ({ theme, children }) => {
-  const [current, setCurrent] = useState<number>(theme);
+const ThemeContextProvider = ({ children }) => {
+  const [current, setCurrent] = useState<number>(0);
+
+  useEffect(() => {
+    const themeLocalStorage = localStorage.getItem('dogmaTheme');
+    const theme =
+      !themeLocalStorage || themeLocalStorage === ''
+        ? 0
+        : Number(themeLocalStorage);
+    setCurrent(theme);
+  }, []);
 
   return (
     <ThemeContext.Provider
