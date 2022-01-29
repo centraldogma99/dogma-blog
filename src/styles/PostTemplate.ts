@@ -19,6 +19,10 @@ export const articleBodyContainer = (theme: Theme) => css`
   line-height: 24px;
   color: ${theme.colors.text};
 
+  :first-of-type {
+    margin-top: 19px;
+  }
+
   .hljs {
     background-color: ${theme.colors.preCode};
   }
@@ -30,22 +34,22 @@ export const articleBodyContainer = (theme: Theme) => css`
   h1 {
     margin-top: 50px;
     margin-bottom: 40px;
-    color: ${theme.colors.primary};
   }
 
   h2 {
     margin-top: 55px;
     margin-bottom: 30px;
-    color: ${theme.colors.primary};
   }
 
   h3 {
     margin-top: 35px;
     margin-bottom: 20px;
-    color: ${theme.colors.primary};
   }
 
-  h1 h2 h3 {
+  h1,
+  h2,
+  h3 {
+    color: ${theme.colors.primary};
   }
 
   code {
@@ -93,9 +97,5 @@ export const articleBodyContainer = (theme: Theme) => css`
 
   strong {
     font-size: 17px;
-  }
-
-  > :first-of-type {
-    margin-top: 19px;
   }
 `;
