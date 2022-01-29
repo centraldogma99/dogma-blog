@@ -19,10 +19,6 @@ export const articleBodyContainer = (theme: Theme) => css`
   line-height: 24px;
   color: ${theme.colors.text};
 
-  :first-of-type {
-    margin-top: 19px;
-  }
-
   .hljs {
     background-color: ${theme.colors.preCode};
   }
@@ -97,5 +93,9 @@ export const articleBodyContainer = (theme: Theme) => css`
 
   strong {
     font-size: 17px;
+  }
+
+  :first-of-type {
+    margin-top: 19px;
   }
 `;
