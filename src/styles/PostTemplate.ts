@@ -91,10 +91,6 @@ export const articleBodyContainer = (theme: Theme) => css`
     }
   }
 
-  strong {
-    font-size: 17px;
-  }
-
   :first-of-type {
     margin-top: 19px;
   }
