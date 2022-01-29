@@ -8,12 +8,13 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import TagBtn from './TagBtn';
 import { Divider } from '@mui/material';
 import hljs from 'highlight.js/lib/common';
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/github-dark-dimmed.css';
 import { TagButtonsContainer } from '../styles/tags';
 import {
   subtitle,
   descContainer,
   articleBodyContainer,
+  date,
 } from '../styles/PostTemplate';
 
 const PostTemplate = ({ data }) => {
@@ -27,7 +28,7 @@ const PostTemplate = ({ data }) => {
     <Frame title={frontmatter.title}>
       <div css={descContainer}>
         <p css={subtitle}>{frontmatter.subtitle}</p>
-        <p>{frontmatter.date} 작성</p>
+        <p css={date}>{frontmatter.date} 작성</p>
         <TagButtonsContainer>
           {frontmatter.tag.sort().map(tag => (
             <TagBtn tag={tag} key={tag} />

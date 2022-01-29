@@ -40,10 +40,11 @@ export const siteNameBlinkingCursor = (theme: Theme) => css`
   }
 `;
 
-export const title = css`
+export const title = (theme: Theme) => css`
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: ${theme.colors.text};
 `;
 
 export const app = (theme: Theme) => css`

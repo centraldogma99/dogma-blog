@@ -12,6 +12,9 @@ const themes: Theme[] = [
       postList: 'black',
       postListDate: '#222',
       text: 'black',
+      codeText: 'white',
+      blockquote: '#eee',
+      preCode: '#333',
     },
     palette: {
       divider: 'gainsboro',
@@ -26,8 +29,11 @@ const themes: Theme[] = [
       title: 'hotpink',
       postListBackground: '#222',
       postList: 'hotpink',
-      postListDate: '#ff76d8',
+      postListDate: 'white',
       text: 'white',
+      codeText: 'white',
+      blockquote: '#222',
+      preCode: '#333',
     },
     palette: {
       divider: 'gainsboro',

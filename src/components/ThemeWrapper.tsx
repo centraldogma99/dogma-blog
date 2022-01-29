@@ -4,7 +4,10 @@ import ThemeContext from '../contexts/ThemeContext';
 import themes from '../styles/themes';
 
 const ThemeContextProvider = ({ children }) => {
-  const [current, setCurrent] = useState<number>(0);
+  const themeLocalStorage = localStorage.getItem('dogmaTheme');
+  const [current, setCurrent] = useState<number>(
+    themeLocalStorage != '' ? Number(themeLocalStorage) : 0,
+  );
 
   return (
     <ThemeContext.Provider

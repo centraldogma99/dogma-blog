@@ -12,6 +12,9 @@ declare module '@emotion/react' {
       postList: string;
       postListDate: string;
       text: string;
+      codeText: string;
+      blockquote: string;
+      preCode: string;
     };
     palette?: {
       divider?: string;

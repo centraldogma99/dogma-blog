@@ -10,13 +10,21 @@ export const descContainer = css`
   margin-bottom: 20px;
 `;
 
+export const date = (theme: Theme) => css`
+  color: ${theme.colors.text};
+`;
+
 export const articleBodyContainer = (theme: Theme) => css`
   font-size: 16px;
   line-height: 24px;
   color: ${theme.colors.text};
 
   .hljs {
-    background-color: #fffdd1;
+    background-color: ${theme.colors.preCode};
+  }
+
+  a {
+    color: ${theme.colors.primary};
   }
 
   h1 {
@@ -52,7 +60,7 @@ export const articleBodyContainer = (theme: Theme) => css`
 
   pre code {
     font-family: 'Menlo', monospace;
-    color: black;
+    color: ${theme.colors.codeText};
     font-size: 14px;
     border-radius: 10px;
     line-height: 18px;
@@ -64,17 +72,17 @@ export const articleBodyContainer = (theme: Theme) => css`
   }
 
   blockquote {
-    background-color: #eee;
+    background-color: ${theme.colors.blockquote};
     border-radius: 10px;
     padding: 20px;
     margin-inline-start: 20px;
     margin-inline-end: 20px;
 
-    > :first-child {
+    > :first-of-type {
       margin-top: 0;
     }
 
-    > h3:first-child {
+    > h3:first-of-type {
       margin-bottom: 19px;
     }
 
@@ -87,7 +95,7 @@ export const articleBodyContainer = (theme: Theme) => css`
     font-size: 17px;
   }
 
-  > :first-child {
+  > :first-of-type {
     margin-top: 19px;
   }
 `;

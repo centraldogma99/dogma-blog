@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { useRef, useCallback, useState } from 'react';
+import { useRef, useCallback } from 'react';
 import { Link } from 'gatsby';
-import { css, jsx, useTheme } from '@emotion/react';
+import { css, jsx } from '@emotion/react';
 import './Frame.css';
 import ThemeContext from '../contexts/ThemeContext';
 import themes from '../styles/themes';
@@ -34,8 +34,10 @@ const Frame = (props: { title?: string; children: any }) => {
   const onClickTheme = useCallback(() => {
     setTheme(prev => {
       if (prev === themes.length - 1) {
+        localStorage.setItem('dogmaTheme', '0');
         return 0;
       } else {
+        localStorage.setItem('dogmaTheme', (prev + 1).toString());
         return prev + 1;
       }
     });
@@ -55,10 +57,10 @@ const Frame = (props: { title?: string; children: any }) => {
             text-decoration: none;
           `}
         >
-          <p css={siteName}>
+          <div css={siteName}>
             Dogma_blog
             <div css={siteNameBlinkingCursor} />
-          </p>
+          </div>
         </Link>
         <nav css={navStyle}>
           <NavBtn to="/about">About</NavBtn>
