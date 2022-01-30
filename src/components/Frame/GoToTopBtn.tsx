@@ -12,7 +12,7 @@ const style = css`
 
 const GoToTopBtn = () => {
   return (
-    <StaticImage src="../images/up-arrow.png" alt="up arrow" css={style} />
+    <StaticImage src="../../images/up-arrow.png" alt="up arrow" css={style} />
   );
 };
 

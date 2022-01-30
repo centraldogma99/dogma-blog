@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import { useState, useCallback, useEffect } from 'react';
-import Frame from './Frame';
+import Frame from './Frame/Frame';
 import PostListItem from './PostListItem';
 import { mdx } from '../types/allMdx';
 

@@ -1,9 +1,11 @@
 import { css, Theme } from '@emotion/react';
 
 export const topBarContainerStyle = css`
-  padding: 10px 20px;
+  padding: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
   height: 50px;
-  width: calc(100% - 40px);
+  width: calc(100% - 10%);
   background-color: #333333;
   display: flex;
   flex-direction: row;
@@ -21,7 +23,6 @@ export const contentsContainerStyle = (theme: Theme) => css`
 export const siteName = (theme: Theme) => css`
   margin: 0;
   font-size: 30px;
-  margin-left: 30px;
   color: ${theme.colors.title};
   font-family: 'Menlo', monospace;
   display: flex;
@@ -62,9 +63,7 @@ export const content = css`
 
 export const article = css``;
 
-export const navStyle = css`
-  margin-right: 20px;
-`;
+export const navStyle = css``;
 
 export const goToTop = css`
   position: fixed;

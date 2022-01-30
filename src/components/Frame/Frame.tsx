@@ -1,11 +1,9 @@
 /** @jsx jsx */
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useContext } from 'react';
 import { Link } from 'gatsby';
 import { css, jsx } from '@emotion/react';
 import './Frame.css';
-import ThemeContext from '../contexts/ThemeContext';
-import themes from '../styles/themes';
-import NavBtn, { navButtonStyle } from './NavBtn';
+import ThemeContext from '../../contexts/ThemeContext';
 import { StaticImage } from 'gatsby-plugin-image';
 import Footer from './Footer';
 import {
@@ -16,31 +14,22 @@ import {
   app,
   content,
   article,
-  navStyle,
   goToTop,
   siteNameBlinkingCursor,
-} from '../styles/Frame';
-import { useContext } from 'react';
+} from '../../styles/Frame';
+import _ from 'lodash';
+import NavButtons from './NavButtons';
+import useViewport from '../../hooks/useViewport';
+import NavDrawer from './NavDrawer';
 
 const Frame = (props: { title?: string; children: any }) => {
-  // const theme = useTheme();
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const { width } = useViewport();
+  const breakpoint = 650;
   const contentsContainer = useRef<HTMLDivElement>(null);
 
   const onClickGoToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  const onClickTheme = useCallback(() => {
-    setTheme(prev => {
-      if (prev === themes.length - 1) {
-        localStorage.setItem('dogmaTheme', '0');
-        return 0;
-      } else {
-        localStorage.setItem('dogmaTheme', (prev + 1).toString());
-        return prev + 1;
-      }
-    });
   }, []);
 
   return (
@@ -62,13 +51,7 @@ const Frame = (props: { title?: string; children: any }) => {
             <div css={siteNameBlinkingCursor} />
           </div>
         </Link>
-        <nav css={navStyle}>
-          <NavBtn to="/about">About</NavBtn>
-          <NavBtn to="/tags">Tags</NavBtn>
-          <p onClick={onClickTheme} css={navButtonStyle}>
-            Go pink
-          </p>
-        </nav>
+        {width > breakpoint ? <NavButtons /> : <NavDrawer />}
       </div>
       <div css={contentsContainerStyle} ref={contentsContainer}>
         <div css={content}>
@@ -79,7 +62,7 @@ const Frame = (props: { title?: string; children: any }) => {
       <Footer />
 
       <StaticImage
-        src="../images/up-arrow.png"
+        src="../../images/up-arrow.png"
         alt="up arrow"
         css={goToTop}
         onClick={onClickGoToTop}

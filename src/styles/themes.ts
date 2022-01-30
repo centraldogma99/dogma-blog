@@ -16,9 +16,6 @@ const themes: Theme[] = [
       blockquote: '#eee',
       preCode: '#333',
     },
-    palette: {
-      divider: 'gainsboro',
-    },
   },
   {
     name: 'hotpink',
@@ -34,9 +31,6 @@ const themes: Theme[] = [
       codeText: 'white',
       blockquote: '#222',
       preCode: '#333',
-    },
-    palette: {
-      divider: 'gainsboro',
     },
   },
 ];

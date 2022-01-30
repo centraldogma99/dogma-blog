@@ -16,8 +16,5 @@ declare module '@emotion/react' {
       blockquote: string;
       preCode: string;
     };
-    palette?: {
-      divider?: string;
-    };
   }
 }

@@ -8,6 +8,7 @@ export const searchInputContainer = css`
   border: 1px solid gainsboro;
   width: 240px;
   margin-bottom: 13px;
+  background-color: white;
 `;
 
 export const sharp = css`

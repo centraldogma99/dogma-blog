@@ -3,7 +3,7 @@
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 import { useEffect } from 'react';
-import Frame from './Frame';
+import Frame from './Frame/Frame';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import TagBtn from './TagBtn';
 import { Divider } from '@mui/material';

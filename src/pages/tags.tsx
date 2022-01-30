@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
-import Frame from '../components/Frame';
+import Frame from '../components/Frame/Frame';
 import TagBtn from '../components/TagBtn';
 import { useState } from 'react';
 import useTagSearch from '../hooks/useTagSearch';

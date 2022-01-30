@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import ThemeContext from '../contexts/ThemeContext';
 import themes from '../styles/themes';
+import {
+  ThemeProvider as ThemeProviderMui,
+  createTheme,
+} from '@mui/material/styles';
 
 const ThemeContextProvider = ({ children }) => {
   const [current, setCurrent] = useState<number>(0);
@@ -20,7 +24,9 @@ const ThemeContextProvider = ({ children }) => {
     <ThemeContext.Provider
       value={{ theme: themes[current], setTheme: setCurrent }}
     >
-      <ThemeProvider theme={themes[current]}>{children}</ThemeProvider>
+      <ThemeProviderMui theme={createTheme()}>
+        <ThemeProvider theme={themes[current]}>{children}</ThemeProvider>
+      </ThemeProviderMui>
     </ThemeContext.Provider>
   );
 };
