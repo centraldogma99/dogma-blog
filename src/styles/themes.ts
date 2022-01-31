@@ -11,7 +11,7 @@ const themes: Theme[] = [
       title: 'white',
       postListBackground: '#eee',
       postList: 'black',
-      postListDate: '#222',
+      postListDate: '#666',
       text: 'black',
       codeText: 'white',
       blockquote: '#eee',

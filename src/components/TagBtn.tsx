@@ -16,8 +16,9 @@ const TagBtn = (props: { tag: string }) => {
     border-radius: 5px;
 
     &:hover {
-      background-color: ${theme.colors.opposite};
-      color: ${theme.colors.text};
+      /* background-color: ${theme.colors.opposite}; */
+      background-color: gray;
+      color: white;
     }
   `;
 

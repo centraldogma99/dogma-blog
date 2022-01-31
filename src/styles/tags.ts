@@ -20,6 +20,7 @@ export const sharp = css`
 
 export const searchInput = css`
   flex: 1;
+  min-width: 0;
   border: none;
   padding: 6px;
   font-size: 18px;

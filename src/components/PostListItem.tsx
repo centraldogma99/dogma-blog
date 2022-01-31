@@ -7,7 +7,6 @@ import { TagButtonsContainer } from '../styles/tags';
 const containerStyle = (theme: Theme) => css`
   padding: 20px;
   padding-top: 12px;
-  margin-bottom: 20px;
   background-color: ${theme.colors.postListBackground};
   cursor: pointer;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);

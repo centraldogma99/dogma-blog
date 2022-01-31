@@ -30,6 +30,7 @@ export const articleBodyContainer = (theme: Theme) => css`
   h1 {
     margin-top: 50px;
     margin-bottom: 40px;
+    font-size: 1.7em;
   }
 
   h2 {
