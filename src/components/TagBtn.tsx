@@ -13,6 +13,12 @@ const TagBtn = (props: { tag: string }) => {
     margin-right: 7px;
     font-size: 13px;
     margin-bottom: 5px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: ${theme.colors.opposite};
+      color: ${theme.colors.text};
+    }
   `;
 
   return (

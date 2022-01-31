@@ -5,6 +5,7 @@ const themes: Theme[] = [
     name: 'blue',
     colors: {
       primary: 'dodgerblue',
+      opposite: 'hotpink',
       secondary: 'white',
       globalBackground: 'white',
       title: 'white',
@@ -21,6 +22,7 @@ const themes: Theme[] = [
     name: 'hotpink',
     colors: {
       primary: 'hotpink',
+      opposite: 'dodgerblue',
       secondary: 'black',
       globalBackground: '#444444',
       title: 'hotpink',

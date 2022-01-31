@@ -7,7 +7,6 @@ export const navButtonStyle = (theme: Theme) => css`
   border: 0;
   margin: 0;
   text-decoration: none;
-  background-color: gray;
   color: ${theme.colors.secondary};
   border-radius: 2px;
   padding: 7px;
@@ -17,6 +16,12 @@ export const navButtonStyle = (theme: Theme) => css`
   display: inline-block;
   line-height: 16px;
   background-color: ${theme.colors.primary};
+  cursor: pointer;
+
+  &:hover {
+    background-color: #222;
+    color: white;
+  }
 `;
 
 const NavBtn = (props: { to: string; children: any }) => {

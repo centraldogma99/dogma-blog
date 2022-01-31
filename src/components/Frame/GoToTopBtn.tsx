@@ -13,6 +13,10 @@ const style = (theme: Theme) => css`
   width: 40px;
   height: 40px;
   color: ${theme.colors.primary};
+  border-radius: 50%;
+  box-shadow: 0px 2px 10px rgb(0 0 0 / 30%);
+  padding: 4px;
+  cursor: pointer;
 `;
 
 const GoToTopBtn = ({ ...props }) => {

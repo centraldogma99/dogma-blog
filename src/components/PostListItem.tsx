@@ -10,12 +10,13 @@ const containerStyle = (theme: Theme) => css`
   margin-bottom: 20px;
   background-color: ${theme.colors.postListBackground};
   cursor: pointer;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
 `;
 
 const titleStyle = (theme: Theme) => css`
   margin: 0;
   color: ${theme.colors.postList};
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 15px;
   font-weight: 650;
 `;
