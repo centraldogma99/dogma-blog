@@ -12,9 +12,10 @@ export const searchInputContainer = css`
 `;
 
 export const sharp = css`
-  margin-left: 7px;
-  margin-right: 4px;
+  padding-left: 7px;
+  padding-right: 4px;
   font-size: 20px;
+  line-height: 30px;
 `;
 
 export const searchInput = css`

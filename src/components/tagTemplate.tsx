@@ -4,7 +4,7 @@ import Frame from './Frame/Frame';
 import PostListItem from './PostListItem';
 import { mdx } from '../types/allMdx';
 
-const pageSize = 5;
+const pageSize = 7;
 
 const TagPage = ({ data, pageContext }) => {
   const mdxs: mdx[] = data.allFile.nodes.map(node => node.childMdx);

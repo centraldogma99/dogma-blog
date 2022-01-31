@@ -28,7 +28,7 @@ const TagsPage = ({ data }) => {
   return (
     <Frame title="태그로 검색하기">
       <div css={searchInputContainer}>
-        <span css={sharp}>#</span>
+        <div css={sharp}>#</div>
         <input
           type="text"
           value={tagInput}

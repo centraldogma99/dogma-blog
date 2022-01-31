@@ -7,6 +7,9 @@ import { jsx, css } from '@emotion/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'gatsby';
 import useToggleTheme from '../../hooks/useToggleTheme';
+import InfoIcon from '@mui/icons-material/Info';
+import TagIcon from '@mui/icons-material/Tag';
+import PaletteIcon from '@mui/icons-material/Palette';
 
 import { Theme } from '@emotion/react';
 
@@ -18,10 +21,15 @@ const hamburgerStyle = css`
 
 const drawerContainerStyle = (theme: Theme) => css`
   color: ${theme.colors.text};
+  background-color: ${theme.colors.globalBackground};
   a {
     color: ${theme.colors.text};
     text-decoration: none;
   }
+`;
+
+const iconStyle = css`
+  margin-right: 18px;
 `;
 
 const NavDrawer = () => {
@@ -41,15 +49,22 @@ const NavDrawer = () => {
       <MenuIcon onClick={onClick} css={hamburgerStyle} />
       <Drawer open={isOpen} onClose={() => setIsOpen(false)} anchor="top">
         <div css={drawerContainerStyle} onClick={onClickDrawerList}>
-          <DrawerList>
-            <Link to="/about">About</Link>
+          <Link to="/about">
+            <DrawerList>
+              <InfoIcon css={iconStyle} />
+              About
+            </DrawerList>
+          </Link>
+          <Link to="/tags">
+            <DrawerList>
+              <TagIcon css={iconStyle} />
+              Tags
+            </DrawerList>
+          </Link>
+          <DrawerList onClick={toggleTheme}>
+            <PaletteIcon css={iconStyle} />
+            Theme
           </DrawerList>
-          <Divider />
-          <DrawerList>
-            <Link to="/tags">Tags</Link>
-          </DrawerList>
-          <Divider />
-          <DrawerList onClick={toggleTheme}>Theme</DrawerList>
         </div>
       </Drawer>
     </React.Fragment>

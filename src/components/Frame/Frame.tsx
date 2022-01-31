@@ -21,6 +21,7 @@ import _ from 'lodash';
 import NavButtons from './NavButtons';
 import useViewport from '../../hooks/useViewport';
 import NavDrawer from './NavDrawer';
+import GoToTopBtn from './GoToTopBtn';
 
 const Frame = (props: { title?: string; children: any }) => {
   const { theme } = useContext(ThemeContext);
@@ -61,12 +62,7 @@ const Frame = (props: { title?: string; children: any }) => {
       </div>
       <Footer />
 
-      <StaticImage
-        src="../../images/up-arrow.png"
-        alt="up arrow"
-        css={goToTop}
-        onClick={onClickGoToTop}
-      />
+      <GoToTopBtn onClick={onClickGoToTop} />
     </div>
   );
 };
