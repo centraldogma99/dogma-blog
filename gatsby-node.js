@@ -1,7 +1,8 @@
-const path = require('path');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path')
 
 const initializePostPages = async (createPage, graphql) => {
-  const template = path.resolve('./src/components/PostTemplate.tsx');
+  const template = path.resolve('./src/components/PostTemplate.tsx')
   const { data } = await graphql(`
     query {
       allFile(
@@ -19,7 +20,7 @@ const initializePostPages = async (createPage, graphql) => {
         }
       }
     }
-  `);
+  `)
 
   data.allFile.nodes.forEach(node => {
     createPage({
@@ -28,9 +29,9 @@ const initializePostPages = async (createPage, graphql) => {
       context: {
         id: node.childMdx.id,
       },
-    });
-  });
-};
+    })
+  })
+}
 
 const initializeTagPages = async (createPage, graphql) => {
   const { data } = await graphql(`
@@ -41,16 +42,16 @@ const initializeTagPages = async (createPage, graphql) => {
         }
       }
     }
-  `);
+  `)
   const tags = data.allMdx.group.reduce((a, b) => {
     if (a.length) {
-      return [...a, b.tag];
+      return [...a, b.tag]
     } else {
-      return [a.tag, b.tag];
+      return [a.tag, b.tag]
     }
-  });
+  })
 
-  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx');
+  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx')
 
   tags.forEach(tag =>
     createPage({
@@ -60,23 +61,23 @@ const initializeTagPages = async (createPage, graphql) => {
         tag: tag,
       },
     }),
-  );
-};
+  )
+}
 
 const initializeMainPage = async createPage => {
-  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx');
+  const tagTemplate = path.resolve('./src/components/tagTemplate.tsx')
 
   createPage({
     path: `/`,
     component: tagTemplate,
-  });
-};
+  })
+}
 
 // Main function
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
-  initializePostPages(createPage, graphql);
-  initializeTagPages(createPage, graphql);
-  initializeMainPage(createPage);
-};
+  initializePostPages(createPage, graphql)
+  initializeTagPages(createPage, graphql)
+  initializeMainPage(createPage)
+}

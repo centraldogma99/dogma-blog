@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { css, jsx, Theme } from '@emotion/react';
+import { css, Theme } from '@emotion/react'
 
 const footerStyle = (theme: Theme) => css`
   display: flex;
@@ -18,7 +17,7 @@ const footerStyle = (theme: Theme) => css`
     color: ${theme.colors.primary};
     cursor: pointer;
   }
-`;
+`
 
 const Footer = () => {
   return (
@@ -30,7 +29,7 @@ const Footer = () => {
         </b>
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

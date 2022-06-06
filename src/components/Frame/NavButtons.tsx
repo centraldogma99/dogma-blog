@@ -1,12 +1,10 @@
-import { navStyle } from '../../styles/Frame';
-import NavBtn, { navButtonStyle } from './NavBtn';
-import { useCallback, useContext } from 'react';
-import ThemeContext from '../../contexts/ThemeContext';
-import themes from '../../styles/themes';
-import useToggleTheme from '../../hooks/useToggleTheme';
+import useToggleTheme from '../../hooks/useToggleTheme'
+import { navStyle } from '../../styles/Frame'
+import NavBtn, { navButtonStyle } from './NavBtn'
 
 const NavButtons = () => {
-  const { toggleTheme } = useToggleTheme();
+  const { toggleTheme } = useToggleTheme()
+
   return (
     <nav css={navStyle}>
       <NavBtn to="/about">About</NavBtn>
@@ -15,7 +13,7 @@ const NavButtons = () => {
         Theme
       </p>
     </nav>
-  );
-};
+  )
+}
 
-export default NavButtons;
+export default NavButtons

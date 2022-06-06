@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 export const searchInputContainer = css`
   display: flex;
@@ -9,14 +9,14 @@ export const searchInputContainer = css`
   width: 240px;
   margin-bottom: 13px;
   background-color: white;
-`;
+`
 
 export const sharp = css`
   padding-left: 7px;
   padding-right: 4px;
   font-size: 20px;
   line-height: 30px;
-`;
+`
 
 export const searchInput = css`
   flex: 1;
@@ -27,10 +27,10 @@ export const searchInput = css`
   &:focus {
     outline: none !important;
   }
-`;
+`
 
 export const TagButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-`;
+`

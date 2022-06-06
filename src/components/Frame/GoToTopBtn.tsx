@@ -1,10 +1,10 @@
-import { css, keyframes } from '@emotion/react';
-import React, { useState, useCallback } from 'react';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { useEffect } from 'react';
-import _ from 'lodash';
-import { Theme } from '@emotion/react';
-import {SvgIconProps} from "@mui/material";
+import { css, keyframes } from '@emotion/react'
+import { Theme } from '@emotion/react'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
+import { SvgIconProps } from '@mui/material'
+import _ from 'lodash'
+import React, { useCallback, useState } from 'react'
+import { useEffect } from 'react'
 
 const animationHide = keyframes`
   from {
@@ -14,7 +14,7 @@ const animationHide = keyframes`
     opacity: 0;
     display: none;
   }
-`;
+`
 
 const animationReveal = keyframes`
   from {
@@ -24,14 +24,14 @@ const animationReveal = keyframes`
     opacity: 1;
     display: block;
   }
-`;
+`
 
-interface Props extends SvgIconProps{
-  scrollObjRef?: React.MutableRefObject<HTMLDivElement>,
+interface Props extends SvgIconProps {
+  scrollObjRef?: React.MutableRefObject<HTMLDivElement>
 }
 
 const GoToTopBtn = ({ scrollObjRef, ...props }: Props) => {
-  const [isHidden, setIsHidden] = useState<boolean>(false);
+  const [isHidden, setIsHidden] = useState<boolean>(false)
   const style = useCallback(
     (theme: Theme) => {
       return css`
@@ -47,32 +47,33 @@ const GoToTopBtn = ({ scrollObjRef, ...props }: Props) => {
         cursor: pointer;
         color: white;
         animation: ${isHidden ? animationHide : animationReveal} 0.7s forwards;
-      `;
+      `
     },
     [isHidden],
-  );
+  )
 
   useEffect(() => {
-    let timer: number | null;
+    let timer: ReturnType<typeof setTimeout>
+    const objRef = scrollObjRef?.current
     const throttledFunc = _.throttle(() => {
       if (timer) {
-        clearTimeout(timer);
+        clearTimeout(timer)
       }
       timer = setTimeout(() => {
-        setIsHidden(false);
-      }, 150);
-      setIsHidden(true);
-    }, 100);
-    scrollObjRef.current?.addEventListener('scroll', throttledFunc);
+        setIsHidden(false)
+      }, 150)
+      setIsHidden(true)
+    }, 100)
+    objRef?.addEventListener('scroll', throttledFunc)
 
-    return () => scrollObjRef.current?.removeEventListener('scroll', throttledFunc);
-  }, [scrollObjRef]);
+    return () => objRef?.removeEventListener('scroll', throttledFunc)
+  }, [scrollObjRef])
 
   return (
     <div>
       <ArrowUpwardIcon css={style} {...props} />
     </div>
-  );
-};
+  )
+}
 
-export default GoToTopBtn;
+export default GoToTopBtn

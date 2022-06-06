@@ -1,9 +1,8 @@
-/** @jsx jsx */
-import { Link } from 'gatsby';
-import { css, jsx, useTheme } from '@emotion/react';
+import { css, useTheme } from '@emotion/react'
+import { Link } from 'gatsby'
 
 const TagBtn = (props: { tag: string }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const btnStyle = css`
     border: 0;
@@ -20,7 +19,7 @@ const TagBtn = (props: { tag: string }) => {
       background-color: gray;
       color: white;
     }
-  `;
+  `
 
   return (
     <Link
@@ -31,7 +30,7 @@ const TagBtn = (props: { tag: string }) => {
     >
       <div css={btnStyle}>{`# ${props.tag}`}</div>
     </Link>
-  );
-};
+  )
+}
 
-export default TagBtn;
+export default TagBtn

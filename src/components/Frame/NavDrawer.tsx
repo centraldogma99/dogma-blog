@@ -1,23 +1,22 @@
-/** @jsx jsx */
-import React from 'react';
-import DrawerList from './DrawerList';
-import { Divider, Drawer, List } from '@mui/material';
-import { useState, useCallback } from 'react';
-import { jsx, css } from '@emotion/react';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'gatsby';
-import useToggleTheme from '../../hooks/useToggleTheme';
-import InfoIcon from '@mui/icons-material/Info';
-import TagIcon from '@mui/icons-material/Tag';
-import PaletteIcon from '@mui/icons-material/Palette';
+import { css } from '@emotion/react'
+import { Theme } from '@emotion/react'
+import InfoIcon from '@mui/icons-material/Info'
+import MenuIcon from '@mui/icons-material/Menu'
+import PaletteIcon from '@mui/icons-material/Palette'
+import TagIcon from '@mui/icons-material/Tag'
+import { Drawer } from '@mui/material'
+import { Link } from 'gatsby'
+import React from 'react'
+import { useCallback, useState } from 'react'
 
-import { Theme } from '@emotion/react';
+import useToggleTheme from '../../hooks/useToggleTheme'
+import DrawerList from './DrawerList'
 
 const hamburgerStyle = css`
   color: white;
   width: 35px;
   height: 35px;
-`;
+`
 
 const drawerContainerStyle = (theme: Theme) => css`
   color: ${theme.colors.text};
@@ -26,23 +25,23 @@ const drawerContainerStyle = (theme: Theme) => css`
     color: ${theme.colors.text};
     text-decoration: none;
   }
-`;
+`
 
 const iconStyle = css`
   margin-right: 18px;
-`;
+`
 
 const NavDrawer = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { toggleTheme } = useToggleTheme();
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const { toggleTheme } = useToggleTheme()
 
   const onClick = useCallback(() => {
-    setIsOpen(true);
-  }, []);
+    setIsOpen(true)
+  }, [])
 
   const onClickDrawerList = useCallback(() => {
-    setIsOpen(false);
-  }, []);
+    setIsOpen(false)
+  }, [])
 
   return (
     <React.Fragment>
@@ -68,7 +67,7 @@ const NavDrawer = () => {
         </div>
       </Drawer>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default NavDrawer;
+export default NavDrawer

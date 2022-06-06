@@ -1,22 +1,25 @@
-import { useContext, useCallback } from 'react';
-import ThemeContext from '../contexts/ThemeContext';
-import themes from '../styles/themes';
+import { useCallback, useContext } from 'react'
+
+import ThemeContext from '../contexts/ThemeContext'
+import themes from '../styles/themes'
 
 const useToggleTheme = () => {
-  const { setTheme } = useContext(ThemeContext);
+  const { setTheme } = useContext(ThemeContext)
   const toggleTheme = useCallback(() => {
     setTheme(prev => {
       if (prev === themes.length - 1) {
-        localStorage.setItem('dogmaTheme', '0');
-        return 0;
+        localStorage.setItem('dogmaTheme', '0')
+
+        return 0
       } else {
-        localStorage.setItem('dogmaTheme', (prev + 1).toString());
-        return prev + 1;
+        localStorage.setItem('dogmaTheme', (prev + 1).toString())
+
+        return prev + 1
       }
-    });
-  }, [themes]);
+    })
+  }, [setTheme])
 
-  return { toggleTheme };
-};
+  return { toggleTheme }
+}
 
-export default useToggleTheme;
+export default useToggleTheme

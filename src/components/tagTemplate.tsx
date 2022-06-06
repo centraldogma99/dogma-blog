@@ -1,39 +1,39 @@
-import { graphql } from 'gatsby';
-import { useState, useCallback, useEffect } from 'react';
-import Frame from './Frame/Frame';
-import PostListItem from './PostListItem';
-import { mdx } from '../types/allMdx';
+import { graphql } from 'gatsby'
+import { useCallback, useEffect, useState } from 'react'
 
-const pageSize = 7;
+import { mdx } from '../types/allMdx'
+import Frame from './Frame/Frame'
+import PostListItem from './PostListItem'
+
+const pageSize = 7
 
 const TagPage = ({ data, pageContext }) => {
-  const mdxs: mdx[] = data.allFile.nodes.map(node => node.childMdx);
-  const [posts, setPosts] = useState<mdx[]>(mdxs.slice(0, pageSize));
+  const mdxs: mdx[] = data.allFile.nodes.map(node => node.childMdx)
+  const [posts, setPosts] = useState<mdx[]>(mdxs.slice(0, pageSize))
+
+  const handleScroll = useCallback(() => {
+    const bottom =
+      window.innerHeight + window.pageYOffset >= document.body.offsetHeight
+
+    if (bottom) {
+      if (posts.length < mdxs.length) {
+        setPosts(prev => [
+          ...prev,
+          ...mdxs.slice(prev.length, prev.length + pageSize),
+        ])
+      }
+    }
+
+    return
+  }, [posts, mdxs])
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
-  const onScroll = useCallback(
-    e => {
-      const bottom =
-        window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
-
-      if (bottom) {
-        if (posts.length < mdxs.length) {
-          setPosts(prev => [
-            ...prev,
-            ...mdxs.slice(prev.length, prev.length + pageSize),
-          ]);
-        }
-      }
-      return;
-    },
-    [posts, mdxs, pageSize],
-  );
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleScroll])
 
   return (
     <Frame title={pageContext.tag ? `# ${pageContext.tag}` : ``}>
@@ -49,8 +49,8 @@ const TagPage = ({ data, pageContext }) => {
         ))}
       </div>
     </Frame>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query ($tag: String) {
@@ -73,6 +73,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default TagPage;
+export default TagPage

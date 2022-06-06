@@ -1,8 +1,8 @@
-/** @jsx jsx */
-import { css, jsx, Theme } from '@emotion/react';
-import { Link } from 'gatsby';
-import TagBtn from './TagBtn';
-import { TagButtonsContainer } from '../styles/tags';
+import { css, Theme } from '@emotion/react'
+import { Link } from 'gatsby'
+
+import { TagButtonsContainer } from '../styles/tags'
+import TagBtn from './TagBtn'
 
 const containerStyle = (theme: Theme) => css`
   padding: 20px;
@@ -10,7 +10,7 @@ const containerStyle = (theme: Theme) => css`
   background-color: ${theme.colors.postListBackground};
   cursor: pointer;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
-`;
+`
 
 const titleStyle = (theme: Theme) => css`
   margin: 0;
@@ -18,19 +18,19 @@ const titleStyle = (theme: Theme) => css`
   font-size: 22px;
   margin-bottom: 15px;
   font-weight: 650;
-`;
+`
 
 const dateStyle = (theme: Theme) => css`
   margin: 0;
   color: ${theme.colors.postListDate};
   font-size: 15px;
-`;
+`
 
 const PostListItem = (props: {
-  title: string;
-  date: string;
-  linkTo: string;
-  tags?: string[];
+  title: string
+  date: string
+  linkTo: string
+  tags?: string[]
 }) => {
   return (
     <div
@@ -55,7 +55,7 @@ const PostListItem = (props: {
         </div>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default PostListItem;
+export default PostListItem

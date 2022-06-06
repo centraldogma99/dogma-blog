@@ -1,26 +1,27 @@
-import { useState, useEffect } from 'react';
-import _ from 'lodash';
+import _ from 'lodash'
+import { useEffect, useState } from 'react'
 
 const useViewport = () => {
-  const [width, setWidth] = useState<number>(0);
+  const [width, setWidth] = useState<number>(0)
 
   useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
+    setWidth(window.innerWidth)
+  }, [])
 
   const onResize = () => {
-    setWidth(window.innerWidth);
-  };
+    setWidth(window.innerWidth)
+  }
 
   useEffect(() => {
-    const onResizeThrottled = _.throttle(onResize);
-    window.addEventListener('resize', onResizeThrottled);
+    const onResizeThrottled = _.throttle(onResize)
+    window.addEventListener('resize', onResizeThrottled)
+
     return () => {
-      window.removeEventListener('resize', onResizeThrottled);
-    };
-  }, []);
+      window.removeEventListener('resize', onResizeThrottled)
+    }
+  }, [])
 
-  return { width };
-};
+  return { width }
+}
 
-export default useViewport;
+export default useViewport

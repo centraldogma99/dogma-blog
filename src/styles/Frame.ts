@@ -1,4 +1,4 @@
-import { css, Theme } from '@emotion/react';
+import { css, Theme } from '@emotion/react'
 
 export const topBarContainerStyle = css`
   padding: 10px 5%;
@@ -10,13 +10,13 @@ export const topBarContainerStyle = css`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-`;
+`
 
 export const contentsContainerStyle = (theme: Theme) => css`
   background-color: ${theme.colors.globalBackground};
   height: calc(100vh - 70px);
   overflow-y: scroll;
-`;
+`
 
 export const siteName = (theme: Theme) => css`
   margin: 0;
@@ -25,7 +25,7 @@ export const siteName = (theme: Theme) => css`
   font-family: 'Menlo', monospace;
   display: flex;
   flex-direction: row;
-`;
+`
 
 export const siteNameBlinkingCursor = (theme: Theme) => css`
   animation: blinker 1s linear infinite;
@@ -37,20 +37,20 @@ export const siteNameBlinkingCursor = (theme: Theme) => css`
       opacity: 0;
     }
   }
-`;
+`
 
 export const title = (theme: Theme) => css`
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
   color: ${theme.colors.text};
-`;
+`
 
 export const app = (theme: Theme) => css`
   background-color: ${theme.colors.globalBackground};
   overflow: hidden;
   min-width: 375px;
-`;
+`
 
 export const content = css`
   max-width: 750px;
@@ -58,11 +58,11 @@ export const content = css`
   margin-right: auto;
   padding: 20px;
   margin-bottom: 50px;
-`;
+`
 
-export const article = css``;
+export const article = css``
 
-export const navStyle = css``;
+export const navStyle = css``
 
 export const goToTop = css`
   position: fixed;
@@ -70,4 +70,4 @@ export const goToTop = css`
   bottom: 50px;
   width: 25px;
   height: 25px;
-`;
+`

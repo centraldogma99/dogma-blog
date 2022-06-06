@@ -1,29 +1,28 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react';
-import { graphql } from 'gatsby';
-import Frame from '../components/Frame/Frame';
-import TagBtn from '../components/TagBtn';
-import { useState } from 'react';
-import useTagSearch from '../hooks/useTagSearch';
+import { graphql } from 'gatsby'
+import { useState } from 'react'
+
+import Frame from '../components/Frame/Frame'
+import TagBtn from '../components/TagBtn'
+import useTagSearch from '../hooks/useTagSearch'
 import {
-  searchInputContainer,
   searchInput,
+  searchInputContainer,
   sharp,
   TagButtonsContainer,
-} from '../styles/tags';
+} from '../styles/tags'
 
 const TagsPage = ({ data }) => {
-  const [tagInput, setTagInput] = useState<string>('');
+  const [tagInput, setTagInput] = useState<string>('')
 
   const tags = data.allMdx.group.reduce((a, b) => {
     if (a.length) {
-      return [...a, b.tag];
+      return [...a, b.tag]
     } else {
-      return [a.tag, b.tag];
+      return [a.tag, b.tag]
     }
-  });
+  })
 
-  const { matchingTags } = useTagSearch(tagInput, tags);
+  const { matchingTags } = useTagSearch(tagInput, tags)
 
   return (
     <Frame title="태그로 검색하기">
@@ -47,8 +46,8 @@ const TagsPage = ({ data }) => {
         ))}
       </TagButtonsContainer>
     </Frame>
-  );
-};
+  )
+}
 
 export const query = graphql`
   {
@@ -58,6 +57,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default TagsPage;
+export default TagsPage

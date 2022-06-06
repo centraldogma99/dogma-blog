@@ -1,7 +1,5 @@
-/** @jsx jsx */
-
-import { Link } from 'gatsby';
-import { css, jsx, Theme } from '@emotion/react';
+import { css, Theme } from '@emotion/react'
+import { Link } from 'gatsby'
 
 export const navButtonStyle = (theme: Theme) => css`
   border: 0;
@@ -22,14 +20,14 @@ export const navButtonStyle = (theme: Theme) => css`
     background-color: #222;
     color: white;
   }
-`;
+`
 
 const NavBtn = (props: { to: string; children: any }) => {
   return (
     <Link to={props.to} css={navButtonStyle}>
       {props.children}
     </Link>
-  );
-};
+  )
+}
 
-export default NavBtn;
+export default NavBtn

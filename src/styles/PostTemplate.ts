@@ -1,18 +1,18 @@
-import { css } from '@emotion/react';
-import { Theme } from '@emotion/react';
+import { css } from '@emotion/react'
+import { Theme } from '@emotion/react'
 
 export const subtitle = css`
   color: #cccccc;
   margin: 0;
-`;
+`
 
 export const descContainer = css`
   margin-bottom: 20px;
-`;
+`
 
 export const date = (theme: Theme) => css`
   color: ${theme.colors.text};
-`;
+`
 
 export const articleBodyContainer = (theme: Theme) => css`
   font-size: 16px;
@@ -95,4 +95,4 @@ export const articleBodyContainer = (theme: Theme) => css`
   > :first-child {
     margin-top: 19px;
   }
-`;
+`

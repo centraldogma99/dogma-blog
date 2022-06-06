@@ -1,4 +1,4 @@
-import { Theme } from '@emotion/react';
+import { Theme } from '@emotion/react'
 
 const themes: Theme[] = [
   {
@@ -35,6 +35,6 @@ const themes: Theme[] = [
       preCode: '#333',
     },
   },
-];
+]
 
-export default themes;
+export default themes

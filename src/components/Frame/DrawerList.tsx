@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import { List } from '@mui/material';
-import { css, jsx } from '@emotion/react';
-import { Theme } from '@emotion/react';
+import { css, Theme } from '@emotion/react'
+import { List } from '@mui/material'
 
 const listStyle = (theme: Theme) => css`
   padding: 11px 13px;
@@ -12,14 +10,14 @@ const listStyle = (theme: Theme) => css`
   font-size: 18px;
   height: 30px;
   /* font-weight: bold; */
-`;
+`
 
 const DrawerList = ({ children, ...props }) => {
   return (
     <List css={listStyle} {...props}>
       {children}
     </List>
-  );
-};
+  )
+}
 
-export default DrawerList;
+export default DrawerList

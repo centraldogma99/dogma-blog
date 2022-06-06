@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
-    "types": ["@emotion/react/types/css-prop"],
+    "module": "esnext",
+    "target": "esnext",
+    "jsxImportSource": "@emotion/react",
+    "lib": ["dom", "ES2019"],
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   }
 }

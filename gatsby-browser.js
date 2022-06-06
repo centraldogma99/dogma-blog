@@ -1,7 +1,9 @@
-import React from 'react';
-import '@fontsource/noto-sans-kr';
-import ThemeContextProvider from './src/components/ThemeContextProvider';
+import '@fontsource/noto-sans-kr'
+
+import React from 'react'
+
+import ThemeContextProvider from './src/components/ThemeContextProvider'
 
 export const wrapRootElement = ({ element }) => {
-  return <ThemeContextProvider>{element}</ThemeContextProvider>;
-};
+  return <ThemeContextProvider>{element}</ThemeContextProvider>
+}

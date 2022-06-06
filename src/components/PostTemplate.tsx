@@ -1,26 +1,28 @@
 // 하나의 포스트를 렌더링
-import { graphql } from 'gatsby';
-import { useEffect } from 'react';
-import Frame from './Frame/Frame';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import TagBtn from './TagBtn';
-import { Divider } from '@mui/material';
-import hljs from 'highlight.js/lib/common';
-import 'highlight.js/styles/github-dark-dimmed.css';
-import { TagButtonsContainer } from '../styles/tags';
+import 'highlight.js/styles/github-dark-dimmed.css'
+
+import { Divider } from '@mui/material'
+import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import hljs from 'highlight.js/lib/common'
+import { useEffect } from 'react'
+
 import {
-  subtitle,
-  descContainer,
   articleBodyContainer,
   date,
-} from '../styles/PostTemplate';
+  descContainer,
+  subtitle,
+} from '../styles/PostTemplate'
+import { TagButtonsContainer } from '../styles/tags'
+import Frame from './Frame/Frame'
+import TagBtn from './TagBtn'
 
 const PostTemplate = ({ data }) => {
-  const { body, frontmatter } = data.mdx;
+  const { body, frontmatter } = data.mdx
 
   useEffect(() => {
-    hljs.highlightAll();
-  }, []);
+    hljs.highlightAll()
+  }, [])
 
   return (
     <Frame title={frontmatter.title}>
@@ -38,8 +40,8 @@ const PostTemplate = ({ data }) => {
         <MDXRenderer>{body}</MDXRenderer>
       </div>
     </Frame>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query ($id: String) {
@@ -54,6 +56,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default PostTemplate;
+export default PostTemplate

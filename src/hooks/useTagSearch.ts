@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react'
 
 const useTagSearch = (tagInput: string, tags: string[]) => {
-  const [matchingTags, setMatchingTags] = useState<string[]>([]);
+  const [matchingTags, setMatchingTags] = useState<string[]>([])
 
   useEffect(() => {
     if (tagInput === '') {
-      setMatchingTags(tags);
+      setMatchingTags(tags)
     } else {
-      const tagInputUncapped = tagInput.toLowerCase();
+      const tagInputUncapped = tagInput.toLowerCase()
       const a = tags
         .map(tag => tag.toLowerCase())
-        .filter(tag => tag.includes(tagInputUncapped));
-      setMatchingTags(a);
+        .filter(tag => tag.includes(tagInputUncapped))
+      setMatchingTags(a)
     }
-  }, [tagInput]);
+  }, [tagInput, tags])
 
-  return { matchingTags };
-};
+  return { matchingTags }
+}
 
-export default useTagSearch;
+export default useTagSearch
