@@ -27,7 +27,7 @@ const animationReveal = keyframes`
 `
 
 interface Props extends SvgIconProps {
-  scrollObjRef?: React.MutableRefObject<HTMLDivElement>
+  scrollObjRef?: React.RefObject<HTMLDivElement>
 }
 
 const GoToTopBtn = ({ scrollObjRef, ...props }: Props) => {

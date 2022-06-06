@@ -13,7 +13,6 @@ import {
   contentsContainerStyle,
   siteName,
   siteNameBlinkingCursor,
-  title,
   topBarContainerStyle,
 } from '../../styles/Frame'
 import Footer from './Footer'
@@ -21,21 +20,25 @@ import GoToTopBtn from './GoToTopBtn'
 import NavButtons from './NavButtons'
 import NavDrawer from './NavDrawer'
 
-const Frame = (props: { title?: string; children: any }) => {
+interface Props {
+  title?: string
+}
+
+const Frame = ({ title, children }: React.PropsWithChildren<Props>) => {
   const { theme } = useContext(ThemeContext)
   const { width } = useViewport()
   const breakpoint = 650
   const contentsContainerRef = useRef<HTMLDivElement>(null)
 
   const onClickGoToTop = useCallback(() => {
-    contentsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+    contentsContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
   return (
     <div css={app}>
       <meta name="robots" content="all" />
       {theme && <meta name="theme-color" content={theme.colors.primary} />}
-      <title>{props.title ? `${props.title} | Dogma` : `Dogma blog`}</title>
+      <title>{title ? `${title} | Dogma` : `Dogma blog`}</title>
       <div css={topBarContainerStyle}>
         <Link
           to="/"
@@ -52,8 +55,8 @@ const Frame = (props: { title?: string; children: any }) => {
       </div>
       <div css={contentsContainerStyle} ref={contentsContainerRef}>
         <div css={content}>
-          {props.title && <div css={title}>{props.title}</div>}
-          <article css={article}>{props.children}</article>
+          {title && <div css={title}>{title}</div>}
+          <article css={article}>{children}</article>
         </div>
       </div>
       <Footer />

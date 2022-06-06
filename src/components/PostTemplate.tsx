@@ -17,7 +17,22 @@ import { TagButtonsContainer } from '../styles/tags'
 import Frame from './Frame/Frame'
 import TagBtn from './TagBtn'
 
-const PostTemplate = ({ data }) => {
+interface Props {
+  data: {
+    mdx: {
+      body: string
+      frontmatter: {
+        tag: string[]
+        date: string
+        draft: boolean
+        subtitle: string
+        title: string
+      }
+    }
+  }
+}
+
+const PostTemplate = ({ data }: Props) => {
   const { body, frontmatter } = data.mdx
 
   useEffect(() => {
