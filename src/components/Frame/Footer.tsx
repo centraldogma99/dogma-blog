@@ -5,7 +5,7 @@ const footerStyle = (theme: Theme) => css`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #333;

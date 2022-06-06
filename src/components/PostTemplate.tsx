@@ -1,6 +1,4 @@
-/** @jsx jsx */
 // 하나의 포스트를 렌더링
-import { jsx } from '@emotion/react';
 import { graphql } from 'gatsby';
 import { useEffect } from 'react';
 import Frame from './Frame/Frame';

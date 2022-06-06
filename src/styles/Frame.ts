@@ -1,9 +1,7 @@
 import { css, Theme } from '@emotion/react';
 
 export const topBarContainerStyle = css`
-  padding: 10px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 10px 5%;
   height: 50px;
   width: calc(100% - 10%);
   background-color: #333333;
@@ -16,8 +14,8 @@ export const topBarContainerStyle = css`
 
 export const contentsContainerStyle = (theme: Theme) => css`
   background-color: ${theme.colors.globalBackground};
-  padding-bottom: 50px;
-  min-height: calc(100vh - 150px);
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
 `;
 
 export const siteName = (theme: Theme) => css`
@@ -59,6 +57,7 @@ export const content = css`
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
+  margin-bottom: 50px;
 `;
 
 export const article = css``;
