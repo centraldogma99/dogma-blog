@@ -14,21 +14,13 @@ import {
   subtitle,
 } from '../styles/PostTemplate'
 import { TagButtonsContainer } from '../styles/tags'
+import { Mdx } from '../types/mdx'
 import Frame from './Frame/Frame'
 import TagBtn from './TagBtn'
 
 interface Props {
   data: {
-    mdx: {
-      body: string
-      frontmatter: {
-        tag: string[]
-        date: string
-        draft: boolean
-        subtitle: string
-        title: string
-      }
-    }
+    mdx: Mdx
   }
 }
 

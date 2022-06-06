@@ -9,7 +9,11 @@ import { useEffect } from 'react'
 import ThemeContext from '../contexts/ThemeContext'
 import themes from '../styles/themes'
 
-const ThemeContextProvider = ({ children }) => {
+interface Props {
+  children: React.ReactChild
+}
+
+const ThemeContextProvider = ({ children }: Props) => {
   const [current, setCurrent] = useState<number>(0)
 
   useEffect(() => {

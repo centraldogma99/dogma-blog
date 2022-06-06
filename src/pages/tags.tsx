@@ -11,16 +11,18 @@ import {
   TagButtonsContainer,
 } from '../styles/tags'
 
-const TagsPage = ({ data }) => {
+interface Props {
+  data: {
+    allMdx: {
+      group: { tag: string }[]
+    }
+  }
+}
+
+const TagsPage = ({ data }: Props) => {
   const [tagInput, setTagInput] = useState<string>('')
 
-  const tags = data.allMdx.group.reduce((a, b) => {
-    if (a.length) {
-      return [...a, b.tag]
-    } else {
-      return [a.tag, b.tag]
-    }
-  })
+  const tags = data.allMdx.group.map(v => v.tag)
 
   const { matchingTags } = useTagSearch(tagInput, tags)
 

@@ -1,4 +1,4 @@
-export type frontMatter = {
+export type FrontMatter = {
   title: string
   date: string
   tag: string[]
@@ -6,9 +6,9 @@ export type frontMatter = {
   draft?: boolean
 }
 
-export type mdx = {
+export type Mdx = {
   slug: string
-  frontmatter: frontMatter
+  frontmatter: FrontMatter
   id: string
   body: string
 }

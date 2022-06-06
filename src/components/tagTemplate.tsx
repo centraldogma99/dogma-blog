@@ -1,15 +1,28 @@
 import { graphql } from 'gatsby'
 import { useCallback, useEffect, useState } from 'react'
 
-import { mdx } from '../types/allMdx'
+import { Mdx } from '../types/mdx'
 import Frame from './Frame/Frame'
 import PostListItem from './PostListItem'
 
 const pageSize = 7
 
-const TagPage = ({ data, pageContext }) => {
-  const mdxs: mdx[] = data.allFile.nodes.map(node => node.childMdx)
-  const [posts, setPosts] = useState<mdx[]>(mdxs.slice(0, pageSize))
+interface Props {
+  data: {
+    allFile: {
+      nodes: {
+        childMdx: Mdx
+      }[]
+    }
+  }
+  pageContext: {
+    tag: string
+  }
+}
+
+const TagPage = ({ data, pageContext }: Props) => {
+  const mdxs: Mdx[] = data.allFile.nodes.map(node => node.childMdx)
+  const [posts, setPosts] = useState<Mdx[]>(mdxs.slice(0, pageSize))
 
   const handleScroll = useCallback(() => {
     const bottom =
